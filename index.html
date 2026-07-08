@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KM Accounting Partners | Financial Leadership Meets Modern Technology</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0D1B2A; --navy-mid: #1A2E45; --gold: #C9A84C; --gold-light: #E8C96A;
+      --white: #FFFFFF; --offwhite: #F4F6F9; --slate: #4A5568; --slate-light: #718096; --border: #E2E8F0;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--navy); background: var(--white); line-height: 1.6; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(13,27,42,0.97); backdrop-filter: blur(8px);
+      padding: 0 5%; height: 72px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; flex-direction: column; line-height: 1.1; }
+    .nav-logo .logo-main { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); letter-spacing: 0.02em; }
+    .nav-logo .logo-sub { font-size: 0.62rem; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta { background: var(--gold) !important; color: var(--navy) !important; padding: 0.5rem 1.2rem; border-radius: 4px; font-weight: 600 !important; }
+    .nav-cta:hover { background: var(--gold-light) !important; }
+
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 55% 45%; padding-top: 72px; }
+    .hero-left { background: var(--navy); padding: 7rem 5% 7rem 7%; display: flex; flex-direction: column; justify-content: center; }
+    .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 1.5rem; }
+    .hero-headline { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 4vw, 3.4rem); font-weight: 700; color: var(--white); line-height: 1.15; margin-bottom: 1.8rem; }
+    .hero-headline em { font-style: normal; color: var(--gold); }
+    .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,0.7); max-width: 460px; margin-bottom: 2.8rem; line-height: 1.7; font-weight: 300; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { background: var(--gold); color: var(--navy); padding: 0.9rem 2rem; border-radius: 4px; font-weight: 600; font-size: 0.9rem; text-decoration: none; letter-spacing: 0.03em; transition: background 0.2s, transform 0.15s; display: inline-block; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-outline { background: transparent; color: var(--white); padding: 0.9rem 2rem; border-radius: 4px; font-weight: 500; font-size: 0.9rem; text-decoration: none; letter-spacing: 0.03em; border: 1px solid rgba(255,255,255,0.35); transition: border-color 0.2s, color 0.2s; display: inline-block; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-right { background: var(--offwhite); display: flex; flex-direction: column; justify-content: center; padding: 5rem 6% 5rem 5%; position: relative; overflow: hidden; }
+    .hero-right::before { content: ''; position: absolute; top: -60px; right: -60px; width: 280px; height: 280px; border-radius: 50%; background: var(--gold); opacity: 0.06; }
+    .hero-right::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 180px; height: 180px; border-radius: 50%; background: var(--navy); opacity: 0.06; }
+    .stat-block { margin-bottom: 3rem; }
+    .stat-item { padding: 1.6rem 0; border-bottom: 1px solid var(--border); }
+    .stat-item:first-child { border-top: 1px solid var(--border); }
+    .stat-number { font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 0.3rem; }
+    .stat-number span { color: var(--gold); }
+    .stat-label { font-size: 0.82rem; color: var(--slate-light); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--white); border: 1px solid var(--border); border-left: 3px solid var(--gold); padding: 0.8rem 1.2rem; border-radius: 4px; font-size: 0.82rem; color: var(--slate); font-weight: 500; }
+
+    .trust-bar { background: var(--navy-mid); padding: 1.4rem 7%; display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap; }
+    .trust-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 600; white-space: nowrap; }
+    .trust-divider { width: 1px; height: 28px; background: rgba(255,255,255,0.15); }
+    .trust-items { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .trust-item { font-size: 0.8rem; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 0.5rem; }
+    .trust-item::before { content: '✓'; color: var(--gold); font-weight: 700; font-size: 0.75rem; }
+
+    section { padding: 6rem 7%; }
+    .section-eyebrow { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 1rem; }
+    .section-headline { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3vw, 2.6rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 1rem; }
+    .section-sub { font-size: 1rem; color: var(--slate-light); max-width: 560px; line-height: 1.7; }
+
+    .services { background: var(--white); }
+    .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1.5rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--border); border: 1px solid var(--border); }
+    .service-card { background: var(--white); padding: 2.5rem 2rem; transition: background 0.2s; }
+    .service-card:hover { background: var(--offwhite); }
+    .service-icon { width: 48px; height: 48px; background: var(--navy); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.4rem; font-size: 1.3rem; }
+    .service-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; color: var(--navy); margin-bottom: 0.7rem; }
+    .service-desc { font-size: 0.88rem; color: var(--slate-light); line-height: 1.65; }
+    .service-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.2rem; font-size: 0.82rem; font-weight: 600; color: var(--gold); text-decoration: none; letter-spacing: 0.04em; }
+    .service-link:hover { color: var(--navy); }
+
+    .differentiator { background: var(--navy); display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; }
+    .diff-left { padding: 6rem 5% 6rem 7%; display: flex; flex-direction: column; justify-content: center; }
+    .diff-right { padding: 6rem 7% 6rem 5%; background: var(--navy-mid); display: flex; flex-direction: column; justify-content: center; }
+    .diff-headline { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.8vw, 2.4rem); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 1.5rem; }
+    .diff-headline em { font-style: normal; color: var(--gold); }
+    .diff-body { font-size: 0.95rem; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 2rem; }
+    .diff-pillars { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; }
+    .diff-pillars li { display: flex; gap: 1rem; align-items: flex-start; }
+    .pillar-icon { width: 36px; height: 36px; min-width: 36px; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.3); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    .pillar-text strong { display: block; font-size: 0.88rem; font-weight: 600; color: var(--white); margin-bottom: 0.15rem; }
+    .pillar-text span { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+    .kheila-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; padding: 2rem; margin-bottom: 2rem; }
+    .kheila-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 0.25rem; }
+    .kheila-title { font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 1.2rem; }
+    .kheila-bio { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.75; }
+    .credentials { display: flex; flex-direction: column; gap: 0.7rem; }
+    .credential-item { display: flex; align-items: center; gap: 0.75rem; font-size: 0.83rem; color: rgba(255,255,255,0.7); }
+    .credential-dot { width: 6px; height: 6px; min-width: 6px; border-radius: 50%; background: var(--gold); }
+
+    .how-it-works { background: var(--offwhite); }
+    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3.5rem; }
+    .step-number { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; color: var(--border); line-height: 1; margin-bottom: 0.5rem; }
+    .step-title { font-weight: 600; font-size: 0.95rem; color: var(--navy); margin-bottom: 0.6rem; }
+    .step-body { font-size: 0.85rem; color: var(--slate-light); line-height: 1.65; }
+
+    .testimonial { background: var(--white); text-align: center; padding: 6rem 15%; }
+    .quote-mark { font-family: 'Playfair Display', serif; font-size: 5rem; color: var(--gold); opacity: 0.3; line-height: 0.5; margin-bottom: 1.5rem; }
+    .quote-text { font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 2vw, 1.6rem); color: var(--navy); line-height: 1.6; margin-bottom: 2rem; font-style: italic; }
+    .quote-author { font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate-light); font-weight: 600; }
+    .quote-author span { color: var(--gold); }
+
+    .blog { background: var(--offwhite); }
+    .blog-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .blog-card { background: var(--white); border: 1px solid var(--border); overflow: hidden; border-radius: 4px; transition: box-shadow 0.2s, transform 0.2s; }
+    .blog-card:hover { box-shadow: 0 8px 32px rgba(13,27,42,0.1); transform: translateY(-2px); }
+    .blog-img { height: 180px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; position: relative; overflow: hidden; }
+    .blog-img-1 { background: linear-gradient(135deg, #0D1B2A 0%, #1A3A5C 100%); }
+    .blog-img-2 { background: linear-gradient(135deg, #1A2E45 0%, #0D1B2A 100%); }
+    .blog-img-3 { background: linear-gradient(135deg, #0D2137 0%, #1A3A5C 100%); }
+    .blog-tag { position: absolute; top: 1rem; left: 1rem; background: var(--gold); color: var(--navy); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 2px; }
+    .blog-content { padding: 1.5rem; }
+    .blog-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--navy); margin-bottom: 0.6rem; line-height: 1.35; }
+    .blog-excerpt { font-size: 0.82rem; color: var(--slate-light); line-height: 1.6; margin-bottom: 1rem; }
+    .blog-meta { font-size: 0.75rem; color: var(--slate-light); display: flex; align-items: center; gap: 0.5rem; }
+    .blog-meta::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--gold); }
+
+    .cta-section { background: var(--navy); text-align: center; padding: 7rem 15%; position: relative; overflow: hidden; }
+    .cta-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events: none; }
+    .cta-headline { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 1.2rem; }
+    .cta-headline em { font-style: normal; color: var(--gold); }
+    .cta-sub { font-size: 1rem; color: rgba(255,255,255,0.6); margin-bottom: 2.5rem; line-height: 1.7; }
+    .cta-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .cta-note { margin-top: 1.2rem; font-size: 0.78rem; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; }
+
+    .newsletter { background: var(--navy-mid); padding: 3rem 7%; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .newsletter-text h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; color: var(--white); margin-bottom: 0.3rem; }
+    .newsletter-text p { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+    .newsletter-form { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .newsletter-input { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); color: var(--white); padding: 0.75rem 1.2rem; font-size: 0.88rem; border-radius: 4px; outline: none; width: 260px; font-family: 'Inter', sans-serif; transition: border-color 0.2s; }
+    .newsletter-input::placeholder { color: rgba(255,255,255,0.35); }
+    .newsletter-input:focus { border-color: var(--gold); }
+    .newsletter-btn { background: var(--gold); color: var(--navy); border: none; padding: 0.75rem 1.5rem; font-size: 0.85rem; font-weight: 600; border-radius: 4px; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s; }
+    .newsletter-btn:hover { background: var(--gold-light); }
+
+    footer { background: #070F18; padding: 4rem 7% 2rem; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .footer-brand .logo-main { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); }
+    .footer-brand .logo-sub { font-size: 0.6rem; color: var(--gold); letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; display: block; margin-bottom: 1rem; }
+    .footer-tagline { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 260px; }
+    .footer-col h4 { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.6rem; }
+    .footer-col ul li a { font-size: 0.83rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
+    .footer-legal { display: flex; gap: 1.5rem; }
+    .footer-legal a { font-size: 0.78rem; color: rgba(255,255,255,0.25); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { padding: 5rem 6%; min-height: calc(100vh - 72px); }
+      .differentiator { grid-template-columns: 1fr; }
+      .diff-right, .diff-left { padding: 4rem 6%; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .testimonial { padding: 5rem 8%; }
+      .cta-section { padding: 5rem 8%; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 4rem 5%; }
+      .services-grid, .steps-grid, .footer-top { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <span class="logo-main">KM Accounting Partners</span>
+    <span class="logo-sub">Finance · Technology · AI · Recruiting</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#insights">Insights</a></li>
+    <li><a href="#contact" class="nav-cta">Book a Call</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Financial Leadership &amp; Technology Consulting</p>
+    <h1 class="hero-headline">Where Financial<br/>Expertise Meets<br/><em>Modern Technology</em></h1>
+    <p class="hero-sub">KM Accounting Partners bridges the gap between financial leadership and technology — helping organizations modernize operations, implement AI, and build stronger business foundations.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Schedule a Free Consultation</a>
+      <a href="#services" class="btn-outline">Explore Services</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-block">
+      <div class="stat-item">
+        <div class="stat-number">15<span>+</span></div>
+        <div class="stat-label">Years of Finance &amp; Technology Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">2<span>-in-1</span></div>
+        <div class="stat-label">Financial Controller &amp; Software Developer</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">6</div>
+        <div class="stat-label">Core Consulting Service Areas</div>
+      </div>
+    </div>
+    <div class="hero-badge">🏛️ &nbsp; Serving commercial &amp; government organizations nationwide</div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <span class="trust-label">What We Deliver</span>
+  <div class="trust-divider"></div>
+  <div class="trust-items">
+    <span class="trust-item">Fractional CFO &amp; Controller Services</span>
+    <span class="trust-item">AI Strategy &amp; Implementation</span>
+    <span class="trust-item">ERP &amp; Software Implementation</span>
+    <span class="trust-item">Finance &amp; Technology Recruiting</span>
+    <span class="trust-item">Business Process Automation</span>
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="services-header">
+    <div>
+      <p class="section-eyebrow">What We Do</p>
+      <h2 class="section-headline">Integrated Services for<br/>Modern Organizations</h2>
+    </div>
+    <p class="section-sub">One firm. One trusted partner. Finance, technology, AI, and recruiting — working together to move your business forward.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">💼</div>
+      <h3 class="service-title">Fractional CFO &amp; Controller</h3>
+      <p class="service-desc">Executive-level financial leadership on a flexible basis. Financial reporting, internal controls, budgeting, forecasting, and audit readiness — without the full-time cost.</p>
+      <a href="#contact" class="service-link">Learn more →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🤖</div>
+      <h3 class="service-title">AI Consulting &amp; Strategy</h3>
+      <p class="service-desc">Practical AI implementation for finance and operations. We identify where AI creates real value and guide your team through adoption — no hype, just results.</p>
+      <a href="#contact" class="service-link">Learn more →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">⚙️</div>
+      <h3 class="service-title">Business Process Automation</h3>
+      <p class="service-desc">Turn manual, time-consuming workflows into automated systems. We redesign financial and operational processes that save time, reduce errors, and lower costs.</p>
+      <a href="#contact" class="service-link">Learn more →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🖥️</div>
+      <h3 class="service-title">ERP &amp; Software Implementation</h3>
+      <p class="service-desc">End-to-end ERP selection, implementation, and administration. We bridge the gap between your finance team and your technology — ensuring systems actually get used.</p>
+      <a href="#contact" class="service-link">Learn more →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔍</div>
+      <h3 class="service-title">Finance &amp; Tech Recruiting</h3>
+      <p class="service-desc">Targeted talent acquisition for finance and technology roles. We find the right people because we understand both worlds — what the job truly requires and what great looks like.</p>
+      <a href="#contact" class="service-link">Learn more →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📊</div>
+      <h3 class="service-title">Financial Reporting &amp; Controls</h3>
+      <p class="service-desc">Clean books, accurate reporting, and airtight internal controls. Built for organizations serving commercial and government clients who need precision and compliance.</p>
+      <a href="#contact" class="service-link">Learn more →</a>
+    </div>
+  </div>
+</section>
+
+<section class="differentiator" id="about">
+  <div class="diff-left">
+    <p class="section-eyebrow" style="color:var(--gold);">The KM Difference</p>
+    <h2 class="diff-headline">Most Consultants Are<br/>Finance <em>or</em> Technology.<br/>We Are Both.</h2>
+    <p class="diff-body">The gap between finance teams and technology systems costs organizations millions in inefficiency every year. KM Accounting Partners was built to close that gap — with a founder who holds deep expertise in both disciplines simultaneously.</p>
+    <ul class="diff-pillars">
+      <li><div class="pillar-icon">📈</div><div class="pillar-text"><strong>Financial Leadership</strong><span>Executive accounting management, reporting, and controls for complex environments</span></div></li>
+      <li><div class="pillar-icon">💡</div><div class="pillar-text"><strong>Software Development</strong><span>Custom solutions and automation built by someone who understands the financial data it touches</span></div></li>
+      <li><div class="pillar-icon">🤖</div><div class="pillar-text"><strong>Artificial Intelligence</strong><span>Practical AI strategy grounded in real business operations — not theoretical frameworks</span></div></li>
+      <li><div class="pillar-icon">🏢</div><div class="pillar-text"><strong>Government &amp; Commercial Experience</strong><span>Proven track record serving organizations in regulated, compliance-driven environments</span></div></li>
+    </ul>
+  </div>
+  <div class="diff-right">
+    <div class="kheila-card">
+      <p class="kheila-name">Kheila Johnson</p>
+      <p class="kheila-title">Founder &amp; CEO · KM Accounting Partners</p>
+      <p class="kheila-bio">A finance and technology professional with extensive experience leading corporate accounting operations, ERP administration, process automation, and technology implementation for organizations serving commercial and government clients. Kheila's rare combination of executive financial expertise and software development capability allows her to design solutions that purely technical or purely financial consultants simply cannot.</p>
+    </div>
+    <div class="credentials">
+      <div class="credential-item"><div class="credential-dot"></div>Financial Controller · Corporate Accounting Leadership</div>
+      <div class="credential-item"><div class="credential-dot"></div>Software Developer · AI &amp; Automation Specialist</div>
+      <div class="credential-item"><div class="credential-dot"></div>ERP Administration &amp; Implementation</div>
+      <div class="credential-item"><div class="credential-dot"></div>Government &amp; Commercial Client Experience</div>
+      <div class="credential-item"><div class="credential-dot"></div>Business Process Improvement &amp; Internal Controls</div>
+      <div class="credential-item"><div class="credential-dot"></div>Finance &amp; Technology Recruiting</div>
+    </div>
+  </div>
+</section>
+
+<section class="how-it-works" id="process">
+  <p class="section-eyebrow">How We Work</p>
+  <h2 class="section-headline">From Discovery to Results</h2>
+  <p class="section-sub">A clear, structured engagement process designed to deliver measurable outcomes from day one.</p>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-number">01</div>
+      <h3 class="step-title">Free Discovery Call</h3>
+      <p class="step-body">We start with a 30-minute conversation to understand your organization, your challenges, and what success looks like for you. No pressure, no sales pitch.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">02</div>
+      <h3 class="step-title">Operational Assessment</h3>
+      <p class="step-body">A focused review of your current financial systems, processes, technology, and gaps — identifying quick wins and longer-term priorities.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">03</div>
+      <h3 class="step-title">Custom Engagement Plan</h3>
+      <p class="step-body">We design a flexible engagement based on your needs — from project-based work to ongoing fractional leadership. Scoped to your budget and timeline.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-number">04</div>
+      <h3 class="step-title">Execution &amp; Growth</h3>
+      <p class="step-body">We become a working part of your team — attending meetings, guiding your staff, and delivering measurable financial and operational improvements.</p>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial">
+  <div class="quote-mark">"</div>
+  <p class="quote-text">KM Accounting Partners brought something we'd never found in a single consultant before — someone who understood our financial statements and could also build the system to automate them. That combination changed everything for us.</p>
+  <p class="quote-author">— <span>Client, Government Contracting Firm</span> · Washington, D.C.</p>
+</section>
+
+<section class="blog" id="insights">
+  <div class="blog-header">
+    <div>
+      <p class="section-eyebrow">Insights &amp; Resources</p>
+      <h2 class="section-headline">Eye on the Industry</h2>
+    </div>
+    <a href="#" class="btn-primary" style="background:var(--navy);color:var(--white);font-size:0.82rem;padding:0.7rem 1.4rem;">View All Articles</a>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card">
+      <div class="blog-img blog-img-1"><span class="blog-tag">AI &amp; Finance</span>🤖</div>
+      <div class="blog-content">
+        <h3 class="blog-title">How AI Is Reshaping the Role of the Financial Controller in 2025</h3>
+        <p class="blog-excerpt">The Controller's job isn't disappearing — it's evolving. Here's how AI tools are changing daily financial operations and what it means for your team.</p>
+        <p class="blog-meta">Kheila Johnson · 5 min read</p>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-img blog-img-2"><span class="blog-tag">Fractional CFO</span>📊</div>
+      <div class="blog-content">
+        <h3 class="blog-title">5 Signs Your Business Is Ready for a Fractional CFO (Not Just a Bookkeeper)</h3>
+        <p class="blog-excerpt">There's a critical stage of growth where bookkeeping isn't enough but a full-time CFO isn't justified. Here's how to know when you've hit it.</p>
+        <p class="blog-meta">Kheila Johnson · 7 min read</p>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-img blog-img-3"><span class="blog-tag">Business Technology</span>⚙️</div>
+      <div class="blog-content">
+        <h3 class="blog-title">ERP Implementation Failures: The Hidden Cause Nobody Talks About</h3>
+        <p class="blog-excerpt">Most ERP failures aren't technical — they're operational. The system works fine. The business wasn't ready for it. Here's how to change that.</p>
+        <p class="blog-meta">Kheila Johnson · 6 min read</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="newsletter">
+  <div class="newsletter-text">
+    <h3>Stay Ahead of the Curve</h3>
+    <p>Finance, AI, and technology insights delivered to your inbox. No noise — just substance.</p>
+  </div>
+  <div class="newsletter-form">
+    <input class="newsletter-input" type="email" placeholder="Your business email" />
+    <button class="newsletter-btn">Subscribe</button>
+  </div>
+</div>
+
+<section class="cta-section" id="contact">
+  <h2 class="cta-headline">Ready to Modernize Your<br/><em>Financial Operations?</em></h2>
+  <p class="cta-sub">Schedule a free 30-minute consultation with Kheila. No commitment, no sales pressure — just an honest conversation about where your business is and where it could be.</p>
+  <div class="cta-actions">
+    <a href="mailto:info@kmaccountingpartners.com" class="btn-primary" style="font-size:1rem;padding:1rem 2.4rem;">Book a Free Consultation</a>
+    <a href="mailto:info@kmaccountingpartners.com" class="btn-outline" style="font-size:1rem;padding:1rem 2.4rem;">Send Us a Message</a>
+  </div>
+  <p class="cta-note">30-minute call · No obligation · Response within 24 hours</p>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="logo-main">KM Accounting Partners</span>
+      <span class="logo-sub">Finance · Technology · AI · Recruiting</span>
+      <p class="footer-tagline">Bridging the gap between financial leadership and modern technology — nationwide.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Fractional CFO &amp; Controller</a></li>
+        <li><a href="#services">AI Consulting</a></li>
+        <li><a href="#services">Process Automation</a></li>
+        <li><a href="#services">ERP Implementation</a></li>
+        <li><a href="#services">Finance Recruiting</a></li>
+        <li><a href="#services">Financial Reporting</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">About Kheila</a></li>
+        <li><a href="#process">How We Work</a></li>
+        <li><a href="#insights">Blog &amp; Insights</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="mailto:info@kmaccountingpartners.com">Email Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 KM Accounting Partners. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
