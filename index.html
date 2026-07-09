@@ -14,6 +14,7 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; color: var(--navy); background: var(--white); line-height: 1.6; }
 
+    /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       background: rgba(13,27,42,0.97); backdrop-filter: blur(8px);
@@ -28,6 +29,62 @@
     .nav-cta { background: var(--gold) !important; color: var(--navy) !important; padding: 0.5rem 1.2rem; border-radius: 4px; font-weight: 600 !important; }
     .nav-cta:hover { background: var(--gold-light) !important; }
 
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 200;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── MOBILE MENU ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0; bottom: 0;
+      background: rgba(13,27,42,0.98);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1.4rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu .mobile-cta {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 0.9rem 2.4rem;
+      border-radius: 4px;
+      font-weight: 700 !important;
+      font-size: 1rem !important;
+      margin-top: 1rem;
+    }
+
+    /* ── HERO ── */
     .hero { min-height: 100vh; display: grid; grid-template-columns: 55% 45%; padding-top: 72px; }
     .hero-left { background: var(--navy); padding: 7rem 5% 7rem 7%; display: flex; flex-direction: column; justify-content: center; }
     .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 1.5rem; }
@@ -39,7 +96,6 @@
     .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
     .btn-outline { background: transparent; color: var(--white); padding: 0.9rem 2rem; border-radius: 4px; font-weight: 500; font-size: 0.9rem; text-decoration: none; letter-spacing: 0.03em; border: 1px solid rgba(255,255,255,0.35); transition: border-color 0.2s, color 0.2s; display: inline-block; }
     .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-
     .hero-right { background: var(--offwhite); display: flex; flex-direction: column; justify-content: center; padding: 5rem 6% 5rem 5%; position: relative; overflow: hidden; }
     .hero-right::before { content: ''; position: absolute; top: -60px; right: -60px; width: 280px; height: 280px; border-radius: 50%; background: var(--gold); opacity: 0.06; }
     .hero-right::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 180px; height: 180px; border-radius: 50%; background: var(--navy); opacity: 0.06; }
@@ -51,6 +107,7 @@
     .stat-label { font-size: 0.82rem; color: var(--slate-light); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; }
     .hero-badge { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--white); border: 1px solid var(--border); border-left: 3px solid var(--gold); padding: 0.8rem 1.2rem; border-radius: 4px; font-size: 0.82rem; color: var(--slate); font-weight: 500; }
 
+    /* ── TRUST BAR ── */
     .trust-bar { background: var(--navy-mid); padding: 1.4rem 7%; display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap; }
     .trust-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 600; white-space: nowrap; }
     .trust-divider { width: 1px; height: 28px; background: rgba(255,255,255,0.15); }
@@ -58,11 +115,13 @@
     .trust-item { font-size: 0.8rem; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 0.5rem; }
     .trust-item::before { content: '✓'; color: var(--gold); font-weight: 700; font-size: 0.75rem; }
 
+    /* ── SHARED ── */
     section { padding: 6rem 7%; }
     .section-eyebrow { font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 1rem; }
     .section-headline { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3vw, 2.6rem); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 1rem; }
     .section-sub { font-size: 1rem; color: var(--slate-light); max-width: 560px; line-height: 1.7; }
 
+    /* ── SERVICES ── */
     .services { background: var(--white); }
     .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1.5rem; }
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--border); border: 1px solid var(--border); }
@@ -74,6 +133,7 @@
     .service-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.2rem; font-size: 0.82rem; font-weight: 600; color: var(--gold); text-decoration: none; letter-spacing: 0.04em; }
     .service-link:hover { color: var(--navy); }
 
+    /* ── DIFFERENTIATOR ── */
     .differentiator { background: var(--navy); display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; }
     .diff-left { padding: 6rem 5% 6rem 7%; display: flex; flex-direction: column; justify-content: center; }
     .diff-right { padding: 6rem 7% 6rem 5%; background: var(--navy-mid); display: flex; flex-direction: column; justify-content: center; }
@@ -93,18 +153,21 @@
     .credential-item { display: flex; align-items: center; gap: 0.75rem; font-size: 0.83rem; color: rgba(255,255,255,0.7); }
     .credential-dot { width: 6px; height: 6px; min-width: 6px; border-radius: 50%; background: var(--gold); }
 
+    /* ── HOW IT WORKS ── */
     .how-it-works { background: var(--offwhite); }
     .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3.5rem; }
     .step-number { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; color: var(--border); line-height: 1; margin-bottom: 0.5rem; }
     .step-title { font-weight: 600; font-size: 0.95rem; color: var(--navy); margin-bottom: 0.6rem; }
     .step-body { font-size: 0.85rem; color: var(--slate-light); line-height: 1.65; }
 
+    /* ── TESTIMONIAL ── */
     .testimonial { background: var(--white); text-align: center; padding: 6rem 15%; }
     .quote-mark { font-family: 'Playfair Display', serif; font-size: 5rem; color: var(--gold); opacity: 0.3; line-height: 0.5; margin-bottom: 1.5rem; }
     .quote-text { font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 2vw, 1.6rem); color: var(--navy); line-height: 1.6; margin-bottom: 2rem; font-style: italic; }
     .quote-author { font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate-light); font-weight: 600; }
     .quote-author span { color: var(--gold); }
 
+    /* ── BLOG ── */
     .blog { background: var(--offwhite); }
     .blog-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
     .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
@@ -121,6 +184,7 @@
     .blog-meta { font-size: 0.75rem; color: var(--slate-light); display: flex; align-items: center; gap: 0.5rem; }
     .blog-meta::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--gold); }
 
+    /* ── CTA ── */
     .cta-section { background: var(--navy); text-align: center; padding: 7rem 15%; position: relative; overflow: hidden; }
     .cta-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events: none; }
     .cta-headline { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 1.2rem; }
@@ -129,6 +193,7 @@
     .cta-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
     .cta-note { margin-top: 1.2rem; font-size: 0.78rem; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; }
 
+    /* ── NEWSLETTER ── */
     .newsletter { background: var(--navy-mid); padding: 3rem 7%; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
     .newsletter-text h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; color: var(--white); margin-bottom: 0.3rem; }
     .newsletter-text p { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
@@ -139,6 +204,7 @@
     .newsletter-btn { background: var(--gold); color: var(--navy); border: none; padding: 0.75rem 1.5rem; font-size: 0.85rem; font-weight: 600; border-radius: 4px; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s; }
     .newsletter-btn:hover { background: var(--gold-light); }
 
+    /* ── FOOTER ── */
     footer { background: #070F18; padding: 4rem 7% 2rem; }
     .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
     .footer-brand .logo-main { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--white); }
@@ -155,6 +221,7 @@
     .footer-legal a { font-size: 0.78rem; color: rgba(255,255,255,0.25); text-decoration: none; transition: color 0.2s; }
     .footer-legal a:hover { color: rgba(255,255,255,0.6); }
 
+    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; }
       .hero-right { display: none; }
@@ -172,6 +239,8 @@
       section { padding: 4rem 5%; }
       .services-grid, .steps-grid, .footer-top { grid-template-columns: 1fr; }
       .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .trust-divider { display: none; }
     }
   </style>
 </head>
@@ -187,9 +256,21 @@
     <li><a href="#about">About</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#insights">Insights</a></li>
-    <li><a href="#contact" class="nav-cta">Book a Call</a></li>
+    <li><a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="nav-cta">Book a Call</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#process" class="mobile-link">Process</a>
+  <a href="#insights" class="mobile-link">Insights</a>
+  <a href="mailto:km@kmaccountingpartners.com" class="mobile-link">Contact</a>
+  <a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="mobile-cta">Book a Free Call</a>
+</div>
 
 <section class="hero" id="home">
   <div class="hero-left">
@@ -197,7 +278,7 @@
     <h1 class="hero-headline">Where Financial<br/>Expertise Meets<br/><em>Modern Technology</em></h1>
     <p class="hero-sub">KM Accounting Partners bridges the gap between financial leadership and technology — helping organizations modernize operations, implement AI, and build stronger business foundations.</p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Schedule a Free Consultation</a>
+      <a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="btn-primary">Schedule a Free Consultation</a>
       <a href="#services" class="btn-outline">Explore Services</a>
     </div>
   </div>
@@ -245,37 +326,37 @@
       <div class="service-icon">💼</div>
       <h3 class="service-title">Fractional CFO &amp; Controller</h3>
       <p class="service-desc">Executive-level financial leadership on a flexible basis. Financial reporting, internal controls, budgeting, forecasting, and audit readiness — without the full-time cost.</p>
-      <a href="#contact" class="service-link">Learn more →</a>
+      <a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="service-link">Learn more →</a>
     </div>
     <div class="service-card">
       <div class="service-icon">🤖</div>
       <h3 class="service-title">AI Consulting &amp; Strategy</h3>
       <p class="service-desc">Practical AI implementation for finance and operations. We identify where AI creates real value and guide your team through adoption — no hype, just results.</p>
-      <a href="#contact" class="service-link">Learn more →</a>
+      <a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="service-link">Learn more →</a>
     </div>
     <div class="service-card">
       <div class="service-icon">⚙️</div>
       <h3 class="service-title">Business Process Automation</h3>
       <p class="service-desc">Turn manual, time-consuming workflows into automated systems. We redesign financial and operational processes that save time, reduce errors, and lower costs.</p>
-      <a href="#contact" class="service-link">Learn more →</a>
+      <a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="service-link">Learn more →</a>
     </div>
     <div class="service-card">
       <div class="service-icon">🖥️</div>
       <h3 class="service-title">ERP &amp; Software Implementation</h3>
       <p class="service-desc">End-to-end ERP selection, implementation, and administration. We bridge the gap between your finance team and your technology — ensuring systems actually get used.</p>
-      <a href="#contact" class="service-link">Learn more →</a>
+      <a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="service-link">Learn more →</a>
     </div>
     <div class="service-card">
       <div class="service-icon">🔍</div>
       <h3 class="service-title">Finance &amp; Tech Recruiting</h3>
       <p class="service-desc">Targeted talent acquisition for finance and technology roles. We find the right people because we understand both worlds — what the job truly requires and what great looks like.</p>
-      <a href="#contact" class="service-link">Learn more →</a>
+      <a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="service-link">Learn more →</a>
     </div>
     <div class="service-card">
       <div class="service-icon">📊</div>
       <h3 class="service-title">Financial Reporting &amp; Controls</h3>
       <p class="service-desc">Clean books, accurate reporting, and airtight internal controls. Built for organizations serving commercial and government clients who need precision and compliance.</p>
-      <a href="#contact" class="service-link">Learn more →</a>
+      <a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="service-link">Learn more →</a>
     </div>
   </div>
 </section>
@@ -349,7 +430,7 @@
       <p class="section-eyebrow">Insights &amp; Resources</p>
       <h2 class="section-headline">Eye on the Industry</h2>
     </div>
-    <a href="#" class="btn-primary" style="background:var(--navy);color:var(--white);font-size:0.82rem;padding:0.7rem 1.4rem;">View All Articles</a>
+    <a href="mailto:km@kmaccountingpartners.com" class="btn-primary" style="background:var(--navy);color:var(--white);font-size:0.82rem;padding:0.7rem 1.4rem;">View All Articles</a>
   </div>
   <div class="blog-grid">
     <div class="blog-card">
@@ -394,8 +475,8 @@
   <h2 class="cta-headline">Ready to Modernize Your<br/><em>Financial Operations?</em></h2>
   <p class="cta-sub">Schedule a free 30-minute consultation with Kheila. No commitment, no sales pressure — just an honest conversation about where your business is and where it could be.</p>
   <div class="cta-actions">
-    <a href="mailto:info@kmaccountingpartners.com" class="btn-primary" style="font-size:1rem;padding:1rem 2.4rem;">Book a Free Consultation</a>
-    <a href="mailto:info@kmaccountingpartners.com" class="btn-outline" style="font-size:1rem;padding:1rem 2.4rem;">Send Us a Message</a>
+    <a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="btn-primary" style="font-size:1rem;padding:1rem 2.4rem;">Book a Free Consultation</a>
+    <a href="mailto:km@kmaccountingpartners.com" class="btn-outline" style="font-size:1rem;padding:1rem 2.4rem;">Send Us a Message</a>
   </div>
   <p class="cta-note">30-minute call · No obligation · Response within 24 hours</p>
 </section>
@@ -433,7 +514,8 @@
         <li><a href="#">LinkedIn</a></li>
         <li><a href="#">Facebook</a></li>
         <li><a href="#">YouTube</a></li>
-        <li><a href="mailto:info@kmaccountingpartners.com">Email Us</a></li>
+        <li><a href="mailto:km@kmaccountingpartners.com">Email Us</a></li>
+        <li><a href="https://calendly.com/km-kmaccountingpartners" target="_blank">Book a Call</a></li>
       </ul>
     </div>
   </div>
@@ -445,6 +527,24 @@
     </div>
   </div>
 </footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+</script>
 
 </body>
 </html>
