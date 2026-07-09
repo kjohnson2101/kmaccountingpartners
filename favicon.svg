@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#0D1B2A"/>
-  <rect width="32" height="32" rx="6" fill="#C9A84C" opacity="0.15"/>
-  <text x="50%" y="52%" dominant-baseline="central" text-anchor="middle" font-family="Georgia, serif" font-size="15" font-weight="900" fill="#C9A84C" letter-spacing="-1">KM</text>
+  <rect width="32" height="32" rx="5" fill="#0D1B2A"/>
+  <polygon points="16,4 27,16 16,28 5,16" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+  <polygon points="16,9 22,16 16,23 10,16" fill="#C9A84C" opacity="0.3"/>
+  <line x1="16" y1="4" x2="16" y2="28" stroke="#C9A84C" stroke-width="0.8"/>
+  <line x1="5" y1="16" x2="27" y2="16" stroke="#C9A84C" stroke-width="0.8"/>
 </svg>
