@@ -34,6 +34,8 @@
     .btn-gold:hover { background:var(--gold-light); }
     .btn-navy { background:var(--navy); color:var(--white); }
     .btn-navy:hover { background:var(--navy-mid); }
+    .btn-navy-outline { border:1.5px solid var(--navy); color:var(--navy); background:transparent; }
+    .btn-navy-outline:hover { background:var(--navy); color:var(--white); }
     .btn-lg { padding:14px 32px; font-size:0.95rem; border-radius:6px; }
     .btn-full { width:100%; padding:13px; font-size:0.95rem; border-radius:6px; }
 
@@ -147,6 +149,28 @@
     .upload-area strong { color:var(--navy); }
     .success-msg { display:none; background:rgba(201,168,76,0.1); border:1.5px solid var(--gold); border-radius:6px; padding:12px 16px; font-size:0.85rem; font-weight:500; color:var(--navy); text-align:center; margin-top:10px; }
 
+    /* RESOURCES */
+    .resources-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:3rem; }
+    .product-card { background:var(--white); border:1.5px solid var(--border); border-radius:14px; overflow:hidden; transition:all 0.25s; display:flex; flex-direction:column; }
+    .product-card:hover { box-shadow:0 8px 32px rgba(13,27,42,0.1); transform:translateY(-3px); border-color:var(--gold); }
+    .product-img { background:var(--navy); padding:32px 28px; display:flex; flex-direction:column; align-items:flex-start; gap:8px; position:relative; overflow:hidden; }
+    .product-img::before { content:''; position:absolute; top:-40px; right:-40px; width:160px; height:160px; border-radius:50%; background:rgba(201,168,76,0.1); }
+    .product-badge { font-size:0.65rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; background:var(--gold); color:var(--navy); padding:4px 10px; border-radius:20px; }
+    .product-img-title { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; color:var(--white); line-height:1.2; }
+    .product-img-title span { color:var(--gold); }
+    .product-format { font-size:0.72rem; color:rgba(255,255,255,0.5); font-weight:500; letter-spacing:0.08em; text-transform:uppercase; margin-top:4px; }
+    .product-body { padding:28px; display:flex; flex-direction:column; flex:1; }
+    .product-desc { font-size:0.88rem; color:var(--slate-light); line-height:1.7; margin-bottom:20px; }
+    .product-features { list-style:none; margin-bottom:24px; display:flex; flex-direction:column; gap:8px; }
+    .product-features li { display:flex; align-items:flex-start; gap:8px; font-size:0.82rem; color:var(--slate); }
+    .product-features li::before { content:'✓'; color:var(--gold); font-weight:700; flex-shrink:0; font-size:0.82rem; }
+    .product-footer { display:flex; align-items:center; justify-content:space-between; margin-top:auto; padding-top:20px; border-top:1px solid var(--border); }
+    .product-price { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; color:var(--navy); }
+    .product-price-label { font-size:0.72rem; color:var(--slate-light); font-weight:500; margin-top:2px; }
+    .coming-soon-card { opacity:0.6; pointer-events:none; }
+    .coming-soon-overlay { background:var(--offwhite); display:flex; align-items:center; justify-content:center; padding:32px 28px; min-height:120px; }
+    .coming-soon-tag { background:var(--navy); color:var(--white); font-size:0.78rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:8px 20px; border-radius:20px; }
+
     /* ABOUT */
     .about-section { background:var(--navy); display:grid; grid-template-columns:1fr 1fr; padding:0; }
     .about-left { padding:6rem 5% 6rem 7%; display:flex; flex-direction:column; justify-content:center; }
@@ -198,7 +222,7 @@
 
     /* FOOTER */
     footer { background:#060F1A; padding:4rem 7% 2rem; }
-    .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; margin-bottom:3rem; padding-bottom:3rem; border-bottom:1px solid rgba(255,255,255,0.06); }
+    .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; gap:2rem; margin-bottom:3rem; padding-bottom:3rem; border-bottom:1px solid rgba(255,255,255,0.06); }
     .footer-tagline { font-size:0.83rem; color:rgba(255,255,255,0.35); line-height:1.7; max-width:240px; margin-top:1rem; }
     .footer-col h4 { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:1.1rem; }
     .footer-col ul { list-style:none; }
@@ -233,8 +257,9 @@
       .section { padding:4rem 5%; }
       .services-grid { grid-template-columns:1fr; }
       .spec-grid { grid-template-columns:1fr 1fr; }
+      .resources-grid { grid-template-columns:1fr; }
       .steps-grid { grid-template-columns:1fr; }
-      .footer-top { grid-template-columns:1fr; }
+      .footer-top { grid-template-columns:1fr 1fr; }
       .form-row { grid-template-columns:1fr; }
       .nav-center, .nav-right { display:none; }
       .hamburger { display:flex; }
@@ -257,6 +282,7 @@
   <ul class="nav-center">
     <li><a href="#consulting">Consulting</a></li>
     <li><a href="#recruiting">Recruiting</a></li>
+    <li><a href="#resources">Resources</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -273,6 +299,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#consulting" class="mobile-link">Consulting</a>
   <a href="#recruiting" class="mobile-link">Recruiting</a>
+  <a href="#resources" class="mobile-link">Resources</a>
   <a href="#about" class="mobile-link">About</a>
   <a href="#process" class="mobile-link">Process</a>
   <a href="#contact" class="mobile-link">Contact</a>
@@ -544,6 +571,91 @@
   </div>
 </section>
 
+<section class="section" style="background:var(--white)" id="resources">
+  <p class="section-eyebrow">Resources & Tools</p>
+  <h2 class="section-headline">Professional Templates &amp; Digital Products</h2>
+  <p class="section-sub">Practical tools built by a Financial Controller — ready to use immediately. Download and get to work today.</p>
+
+  <div class="resources-grid">
+
+    <!-- PRODUCT 1: KM Fixed Asset Manager -->
+    <div class="product-card">
+      <div class="product-img">
+        <span class="product-badge">Excel Template</span>
+        <div class="product-img-title">Fixed Asset<br/><span>Manager</span></div>
+        <div class="product-format">Professional Excel Workbook · 6 Tabs</div>
+      </div>
+      <div class="product-body">
+        <p class="product-desc">Professional-grade fixed asset tracking built by a Financial Controller. Automate depreciation, generate journal entries, and monitor your full portfolio — all in one Excel file.</p>
+        <ul class="product-features">
+          <li>Asset Register with 32 fields per asset</li>
+          <li>4 depreciation methods (SL, DDB, SYD, UOP)</li>
+          <li>Auto-generated monthly journal entry</li>
+          <li>Portfolio dashboard with KPI cards</li>
+          <li>Disposal log with gain/loss tracking</li>
+          <li>GAAP compliant · Audit ready</li>
+        </ul>
+        <div class="product-footer">
+          <div>
+            <div class="product-price">$97</div>
+            <div class="product-price-label">One-time · Instant download</div>
+          </div>
+          <a href="https://kmaccountant.gumroad.com/l/jvvxp" target="_blank" class="btn btn-gold btn-lg">Buy Now →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 2: Coming Soon -->
+    <div class="product-card coming-soon-card">
+      <div class="coming-soon-overlay">
+        <span class="coming-soon-tag">Coming Soon</span>
+      </div>
+      <div class="product-body">
+        <p class="product-desc" style="font-weight:600;color:var(--navy);">DepreciateIQ</p>
+        <p class="product-desc">A full web-based fixed asset management platform with AI-powered depreciation recommendations, multi-user access, and automated reporting.</p>
+        <ul class="product-features">
+          <li>Cloud-based — no Excel required</li>
+          <li>AI depreciation recommendations</li>
+          <li>Multi-user access &amp; permissions</li>
+          <li>Automated GAAP reporting</li>
+        </ul>
+        <div class="product-footer">
+          <div>
+            <div class="product-price" style="font-size:1.1rem;color:var(--slate-light);">Coming Soon</div>
+            <div class="product-price-label">Web App · Subscription</div>
+          </div>
+          <a href="mailto:km@kmaccountingpartners.com" class="btn btn-navy-outline btn-lg" style="pointer-events:all;opacity:1;">Join Waitlist</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT 3: Coming Soon -->
+    <div class="product-card coming-soon-card">
+      <div class="coming-soon-overlay">
+        <span class="coming-soon-tag">Coming Soon</span>
+      </div>
+      <div class="product-body">
+        <p class="product-desc" style="font-weight:600;color:var(--navy);">More Templates</p>
+        <p class="product-desc">More professional accounting templates are in development — including a Month-End Close Checklist, Budget vs. Actual Tracker, and Cash Flow Forecasting Model.</p>
+        <ul class="product-features">
+          <li>Month-End Close Checklist</li>
+          <li>Budget vs. Actual Tracker</li>
+          <li>Cash Flow Forecast Model</li>
+          <li>Chart of Accounts Builder</li>
+        </ul>
+        <div class="product-footer">
+          <div>
+            <div class="product-price" style="font-size:1.1rem;color:var(--slate-light);">Coming Soon</div>
+            <div class="product-price-label">Excel Templates</div>
+          </div>
+          <a href="mailto:km@kmaccountingpartners.com" class="btn btn-navy-outline btn-lg" style="pointer-events:all;opacity:1;">Get Notified</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <section class="about-section" id="about">
   <div class="about-left">
     <p class="section-eyebrow" style="color:var(--gold)">The KM Difference</p>
@@ -631,6 +743,14 @@
         <li><a href="#candidate-form">For Candidates</a></li>
         <li><a href="#specialties">Roles We Place</a></li>
         <li><a href="#employer-form">Submit a Role</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="https://kmaccountant.gumroad.com/l/jvvxp" target="_blank">Fixed Asset Manager</a></li>
+        <li><a href="mailto:km@kmaccountingpartners.com">DepreciateIQ Waitlist</a></li>
+        <li><a href="mailto:km@kmaccountingpartners.com">Get Notified</a></li>
       </ul>
     </div>
     <div class="footer-col">
