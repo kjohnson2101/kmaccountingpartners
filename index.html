@@ -16,8 +16,6 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family:'Inter',sans-serif; color:var(--text); background:var(--white); line-height:1.6; }
-
-    /* NAV */
     nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(13,27,42,0.97); backdrop-filter:blur(10px); height:72px; display:flex; align-items:center; justify-content:space-between; padding:0 5%; }
     .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
     .nav-logo-mark { width:40px; height:40px; background:var(--gold); border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:15px; color:var(--navy); flex-shrink:0; }
@@ -26,6 +24,8 @@
     .nav-center { display:flex; align-items:center; gap:2rem; list-style:none; }
     .nav-center a { color:rgba(255,255,255,0.75); text-decoration:none; font-size:0.85rem; font-weight:500; transition:color 0.2s; }
     .nav-center a:hover { color:var(--white); }
+    .nav-center a.nav-km360 { color:var(--gold); font-weight:700; border:1px solid rgba(201,168,76,0.35); padding:4px 12px; border-radius:4px; transition:all 0.2s; }
+    .nav-center a.nav-km360:hover { background:var(--gold); color:var(--navy); }
     .nav-right { display:flex; gap:10px; align-items:center; }
     .btn { display:inline-flex; align-items:center; justify-content:center; padding:9px 20px; border-radius:5px; font-size:0.85rem; font-weight:600; cursor:pointer; text-decoration:none; transition:all 0.2s; border:none; font-family:'Inter',sans-serif; }
     .btn-ghost { border:1.5px solid rgba(255,255,255,0.3); color:var(--white); background:transparent; }
@@ -38,8 +38,6 @@
     .btn-navy-outline:hover { background:var(--navy); color:var(--white); }
     .btn-lg { padding:14px 32px; font-size:0.95rem; border-radius:6px; }
     .btn-full { width:100%; padding:13px; font-size:0.95rem; border-radius:6px; }
-
-    /* HAMBURGER */
     .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
     .hamburger span { display:block; width:24px; height:2px; background:var(--white); border-radius:2px; transition:all 0.3s; }
     .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
@@ -50,8 +48,7 @@
     .mobile-menu a { color:var(--white); text-decoration:none; font-size:1.3rem; font-weight:500; transition:color 0.2s; }
     .mobile-menu a:hover { color:var(--gold); }
     .m-cta { background:var(--gold)!important; color:var(--navy)!important; padding:0.85rem 2.2rem; border-radius:5px; font-weight:700!important; font-size:1rem!important; margin-top:0.5rem; }
-
-    /* HERO */
+    .m-km360 { color:var(--gold)!important; border:1px solid rgba(201,168,76,0.4); padding:0.6rem 1.8rem; border-radius:4px; }
     .hero { min-height:100vh; display:grid; grid-template-columns:55% 45%; padding-top:72px; }
     .hero-left { background:var(--navy); padding:7rem 5% 7rem 7%; display:flex; flex-direction:column; justify-content:center; }
     .hero-eyebrow { font-size:0.72rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:1.5rem; }
@@ -74,23 +71,17 @@
     .stat-number span { color:var(--gold); }
     .stat-label { font-size:0.78rem; color:var(--slate-light); letter-spacing:0.06em; text-transform:uppercase; font-weight:500; }
     .hero-badge { display:inline-flex; align-items:center; gap:0.6rem; background:var(--white); border:1px solid var(--border); border-left:3px solid var(--gold); padding:0.75rem 1.1rem; border-radius:4px; font-size:0.8rem; color:var(--slate); font-weight:500; }
-
-    /* TRUST BAR */
     .trust-bar { background:var(--navy-mid); padding:1.2rem 7%; display:flex; align-items:center; gap:2rem; flex-wrap:wrap; }
     .trust-label { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:600; white-space:nowrap; }
     .trust-divider { width:1px; height:24px; background:rgba(255,255,255,0.15); }
     .trust-items { display:flex; gap:2rem; flex-wrap:wrap; }
     .trust-item { font-size:0.78rem; color:rgba(255,255,255,0.65); display:flex; align-items:center; gap:0.5rem; }
     .trust-item::before { content:'✓'; color:var(--gold); font-weight:700; font-size:0.72rem; }
-
-    /* SHARED */
     .section { padding:6rem 7%; }
     .section-eyebrow { font-size:0.7rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:0.9rem; }
     .section-headline { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,2.8vw,2.5rem); font-weight:700; color:var(--navy); line-height:1.2; margin-bottom:0.9rem; }
     .section-sub { font-size:0.98rem; color:var(--slate-light); max-width:560px; line-height:1.75; }
     .section-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3.5rem; flex-wrap:wrap; gap:1.5rem; }
-
-    /* CONSULTING */
     .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5px; background:var(--border); border:1px solid var(--border); border-radius:8px; overflow:hidden; }
     .service-card { background:var(--white); padding:2.5rem 2rem; transition:background 0.2s; }
     .service-card:hover { background:var(--offwhite); }
@@ -99,13 +90,9 @@
     .service-desc { font-size:0.86rem; color:var(--slate-light); line-height:1.65; }
     .service-link { display:inline-flex; align-items:center; gap:0.4rem; margin-top:1.1rem; font-size:0.8rem; font-weight:600; color:var(--gold); text-decoration:none; }
     .service-link:hover { color:var(--navy); }
-
-    /* DIVIDER BANNER */
     .divider-banner { background:var(--gold); padding:2.5rem 7%; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
     .divider-banner h3 { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700; color:var(--navy); }
     .divider-banner p { font-size:0.9rem; color:rgba(13,27,42,0.7); max-width:500px; }
-
-    /* RECRUITING */
     .recruiting-split { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:3.5rem; }
     .audience-card { border-radius:12px; padding:40px; display:flex; flex-direction:column; }
     .audience-card.employer { background:var(--navy); }
@@ -122,16 +109,12 @@
     .audience-card.employer .aud-list li { color:rgba(255,255,255,0.75); }
     .audience-card.candidate .aud-list li { color:var(--slate); }
     .check { color:var(--gold); font-weight:700; flex-shrink:0; }
-
-    /* SPECIALTIES */
     .spec-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:3rem; }
     .spec-card { border:1.5px solid var(--border); border-radius:10px; padding:24px 20px; transition:all 0.2s; }
     .spec-card:hover { border-color:var(--gold); box-shadow:0 4px 20px rgba(201,168,76,0.1); transform:translateY(-2px); }
     .spec-icon { font-size:1.6rem; margin-bottom:12px; display:block; }
     .spec-card h4 { font-size:0.9rem; font-weight:700; color:var(--navy); margin-bottom:5px; }
     .spec-card p { font-size:0.8rem; color:var(--gold); font-weight:600; }
-
-    /* FORMS */
     .forms-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:3rem; }
     .form-card { background:var(--white); border-radius:14px; padding:40px; border:1.5px solid var(--border); }
     .form-card h3 { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:700; color:var(--navy); margin-bottom:5px; }
@@ -148,8 +131,6 @@
     .upload-area p { font-size:0.8rem; color:var(--slate-light); line-height:1.5; }
     .upload-area strong { color:var(--navy); }
     .success-msg { display:none; background:rgba(201,168,76,0.1); border:1.5px solid var(--gold); border-radius:6px; padding:12px 16px; font-size:0.85rem; font-weight:500; color:var(--navy); text-align:center; margin-top:10px; }
-
-    /* RESOURCES */
     .resources-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:3rem; }
     .product-card { background:var(--white); border:1.5px solid var(--border); border-radius:14px; overflow:hidden; transition:all 0.25s; display:flex; flex-direction:column; }
     .product-card:hover { box-shadow:0 8px 32px rgba(13,27,42,0.1); transform:translateY(-3px); border-color:var(--gold); }
@@ -170,8 +151,6 @@
     .coming-soon-card { opacity:0.6; pointer-events:none; }
     .coming-soon-overlay { background:var(--offwhite); display:flex; align-items:center; justify-content:center; padding:32px 28px; min-height:120px; }
     .coming-soon-tag { background:var(--navy); color:var(--white); font-size:0.78rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:8px 20px; border-radius:20px; }
-
-    /* ABOUT */
     .about-section { background:var(--navy); display:grid; grid-template-columns:1fr 1fr; padding:0; }
     .about-left { padding:6rem 5% 6rem 7%; display:flex; flex-direction:column; justify-content:center; }
     .about-right { padding:6rem 7% 6rem 5%; background:var(--navy-mid); display:flex; flex-direction:column; justify-content:center; }
@@ -190,21 +169,15 @@
     .credentials { display:flex; flex-direction:column; gap:0.65rem; }
     .credential-item { display:flex; align-items:center; gap:0.75rem; font-size:0.82rem; color:rgba(255,255,255,0.65); }
     .cred-dot { width:6px; height:6px; min-width:6px; border-radius:50%; background:var(--gold); }
-
-    /* PROCESS */
     .steps-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; margin-top:3rem; }
     .step-num { font-family:'Playfair Display',serif; font-size:3rem; font-weight:700; color:var(--border); line-height:1; margin-bottom:0.5rem; }
     .step-title { font-weight:600; font-size:0.93rem; color:var(--navy); margin-bottom:0.5rem; }
     .step-body { font-size:0.83rem; color:var(--slate-light); line-height:1.65; }
-
-    /* TESTIMONIAL */
     .testimonial { background:var(--white); text-align:center; padding:6rem 15%; }
     .quote-mark { font-family:'Playfair Display',serif; font-size:5rem; color:var(--gold); opacity:0.3; line-height:0.5; margin-bottom:1.5rem; }
     .quote-text { font-family:'Playfair Display',serif; font-size:clamp(1.1rem,1.8vw,1.5rem); color:var(--navy); line-height:1.65; margin-bottom:1.8rem; font-style:italic; }
     .quote-author { font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--slate-light); font-weight:600; }
     .quote-author span { color:var(--gold); }
-
-    /* CTA */
     .cta-section { background:var(--navy); text-align:center; padding:7rem 15%; position:relative; overflow:hidden; }
     .cta-section::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:600px; height:600px; border-radius:50%; background:radial-gradient(circle,rgba(201,168,76,0.08) 0%,transparent 70%); pointer-events:none; }
     .cta-headline { font-family:'Playfair Display',serif; font-size:clamp(1.9rem,3vw,2.8rem); font-weight:700; color:var(--white); line-height:1.2; margin-bottom:1rem; }
@@ -212,15 +185,11 @@
     .cta-sub { font-size:0.98rem; color:rgba(255,255,255,0.55); margin-bottom:2.5rem; line-height:1.75; }
     .cta-actions { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
     .cta-note { margin-top:1.2rem; font-size:0.75rem; color:rgba(255,255,255,0.3); letter-spacing:0.06em; }
-
-    /* CONTACT BAR */
     .contact-bar { background:var(--navy-mid); padding:3rem 7%; display:flex; justify-content:center; gap:5rem; flex-wrap:wrap; }
     .contact-item { text-align:center; }
     .contact-label { font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:6px; }
     .contact-item a, .contact-item p { color:var(--white); text-decoration:none; font-size:0.95rem; font-weight:500; transition:color 0.2s; }
     .contact-item a:hover { color:var(--gold); }
-
-    /* FOOTER */
     footer { background:#060F1A; padding:4rem 7% 2rem; }
     .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; gap:2rem; margin-bottom:3rem; padding-bottom:3rem; border-bottom:1px solid rgba(255,255,255,0.06); }
     .footer-tagline { font-size:0.83rem; color:rgba(255,255,255,0.35); line-height:1.7; max-width:240px; margin-top:1rem; }
@@ -234,43 +203,12 @@
     .footer-legal { display:flex; gap:1.5rem; }
     .footer-legal a { font-size:0.76rem; color:rgba(255,255,255,0.22); text-decoration:none; transition:color 0.2s; }
     .footer-legal a:hover { color:rgba(255,255,255,0.6); }
-
-    /* RESPONSIVE */
-    @media (max-width:1024px) {
-      .spec-grid { grid-template-columns:repeat(2,1fr); }
-      .steps-grid { grid-template-columns:repeat(2,1fr); }
-      .footer-top { grid-template-columns:1fr 1fr; }
-    }
-    @media (max-width:900px) {
-      .hero { grid-template-columns:1fr; }
-      .hero-right { display:none; }
-      .hero-left { padding:5rem 6%; min-height:calc(100vh - 72px); }
-      .services-grid { grid-template-columns:1fr 1fr; }
-      .recruiting-split { grid-template-columns:1fr; }
-      .forms-grid { grid-template-columns:1fr; }
-      .about-section { grid-template-columns:1fr; }
-      .about-right, .about-left { padding:4rem 6%; }
-      .testimonial { padding:5rem 8%; }
-      .cta-section { padding:5rem 8%; }
-    }
-    @media (max-width:600px) {
-      .section { padding:4rem 5%; }
-      .services-grid { grid-template-columns:1fr; }
-      .spec-grid { grid-template-columns:1fr 1fr; }
-      .resources-grid { grid-template-columns:1fr; }
-      .steps-grid { grid-template-columns:1fr; }
-      .footer-top { grid-template-columns:1fr 1fr; }
-      .form-row { grid-template-columns:1fr; }
-      .nav-center, .nav-right { display:none; }
-      .hamburger { display:flex; }
-      .trust-divider { display:none; }
-      .contact-bar { gap:2.5rem; }
-      .hero-cards { flex-direction:column; }
-    }
+    @media (max-width:1024px) { .spec-grid { grid-template-columns:repeat(2,1fr); } .steps-grid { grid-template-columns:repeat(2,1fr); } .footer-top { grid-template-columns:1fr 1fr; } }
+    @media (max-width:900px) { .hero { grid-template-columns:1fr; } .hero-right { display:none; } .hero-left { padding:5rem 6%; min-height:calc(100vh - 72px); } .services-grid { grid-template-columns:1fr 1fr; } .recruiting-split { grid-template-columns:1fr; } .forms-grid { grid-template-columns:1fr; } .about-section { grid-template-columns:1fr; } .about-right, .about-left { padding:4rem 6%; } .testimonial { padding:5rem 8%; } .cta-section { padding:5rem 8%; } }
+    @media (max-width:600px) { .section { padding:4rem 5%; } .services-grid { grid-template-columns:1fr; } .spec-grid { grid-template-columns:1fr 1fr; } .resources-grid { grid-template-columns:1fr; } .steps-grid { grid-template-columns:1fr; } .footer-top { grid-template-columns:1fr 1fr; } .form-row { grid-template-columns:1fr; } .nav-center, .nav-right { display:none; } .hamburger { display:flex; } .trust-divider { display:none; } .contact-bar { gap:2.5rem; } .hero-cards { flex-direction:column; } }
   </style>
 </head>
 <body>
-
 <nav>
   <a href="#home" class="nav-logo">
     <div class="nav-logo-mark">KM</div>
@@ -286,6 +224,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="/KM360/index.html" class="nav-km360">KM360 Media</a></li>
   </ul>
   <div class="nav-right">
     <a href="#candidate-form" class="btn btn-ghost">Find a Job</a>
@@ -295,7 +234,6 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
-
 <div class="mobile-menu" id="mobileMenu">
   <a href="#consulting" class="mobile-link">Consulting</a>
   <a href="#recruiting" class="mobile-link">Recruiting</a>
@@ -303,54 +241,29 @@
   <a href="#about" class="mobile-link">About</a>
   <a href="#process" class="mobile-link">Process</a>
   <a href="#contact" class="mobile-link">Contact</a>
+  <a href="/KM360/index.html" class="mobile-link m-km360">KM360 Media</a>
   <a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="m-cta">Book a Free Call</a>
 </div>
-
 <section class="hero" id="home">
   <div class="hero-left">
     <p class="hero-eyebrow">Financial Leadership &amp; Executive Recruiting</p>
     <h1 class="hero-headline">Where Financial<br/>Expertise Meets<br/><em>Modern Technology</em></h1>
     <p class="hero-sub">KM Accounting Partners delivers fractional CFO services, AI consulting, and executive recruiting for Finance and IT roles paying $150K+. One firm. Two powerful solutions.</p>
     <div class="hero-cards">
-      <a href="#consulting" class="hero-cta-card">
-        <span class="hcc-icon">💼</span>
-        <div class="hcc-title">I Need Consulting</div>
-        <div class="hcc-desc">Fractional CFO, AI strategy, ERP, and process automation.</div>
-        <div class="hcc-arrow">Explore services →</div>
-      </a>
-      <a href="#recruiting" class="hero-cta-card">
-        <span class="hcc-icon">🔍</span>
-        <div class="hcc-title">I Need to Hire</div>
-        <div class="hcc-desc">$150K+ Finance &amp; IT executive recruiting. Zero upfront cost.</div>
-        <div class="hcc-arrow">Learn more →</div>
-      </a>
-      <a href="#candidate-form" class="hero-cta-card">
-        <span class="hcc-icon">👤</span>
-        <div class="hcc-title">I'm a Candidate</div>
-        <div class="hcc-desc">Upload your resume and let us match you to your next role.</div>
-        <div class="hcc-arrow">Get started →</div>
-      </a>
+      <a href="#consulting" class="hero-cta-card"><span class="hcc-icon">💼</span><div class="hcc-title">I Need Consulting</div><div class="hcc-desc">Fractional CFO, AI strategy, ERP, and process automation.</div><div class="hcc-arrow">Explore services →</div></a>
+      <a href="#recruiting" class="hero-cta-card"><span class="hcc-icon">🔍</span><div class="hcc-title">I Need to Hire</div><div class="hcc-desc">$150K+ Finance &amp; IT executive recruiting. Zero upfront cost.</div><div class="hcc-arrow">Learn more →</div></a>
+      <a href="#candidate-form" class="hero-cta-card"><span class="hcc-icon">👤</span><div class="hcc-title">I'm a Candidate</div><div class="hcc-desc">Upload your resume and let us match you to your next role.</div><div class="hcc-arrow">Get started →</div></a>
     </div>
   </div>
   <div class="hero-right">
     <div class="stat-block">
-      <div class="stat-item">
-        <div class="stat-number">15<span>+</span></div>
-        <div class="stat-label">Years Finance &amp; Technology Experience</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">$150K<span>+</span></div>
-        <div class="stat-label">Average Placement Salary</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">0<span>%</span></div>
-        <div class="stat-label">Upfront Cost to Employers</div>
-      </div>
+      <div class="stat-item"><div class="stat-number">15<span>+</span></div><div class="stat-label">Years Finance &amp; Technology Experience</div></div>
+      <div class="stat-item"><div class="stat-number">$150K<span>+</span></div><div class="stat-label">Average Placement Salary</div></div>
+      <div class="stat-item"><div class="stat-number">0<span>%</span></div><div class="stat-label">Upfront Cost to Employers</div></div>
     </div>
     <div class="hero-badge">🏛️ &nbsp; Serving commercial &amp; government organizations nationwide</div>
   </div>
 </section>
-
 <div class="trust-bar">
   <span class="trust-label">What We Deliver</span>
   <div class="trust-divider"></div>
@@ -362,97 +275,33 @@
     <span class="trust-item">Business Process Automation</span>
   </div>
 </div>
-
 <section class="section" style="background:var(--white)" id="consulting">
   <div class="section-header">
-    <div>
-      <p class="section-eyebrow">Consulting Services</p>
-      <h2 class="section-headline">Integrated Services for<br/>Modern Organizations</h2>
-    </div>
+    <div><p class="section-eyebrow">Consulting Services</p><h2 class="section-headline">Integrated Services for<br/>Modern Organizations</h2></div>
     <p class="section-sub">One firm. One trusted partner. Finance, technology, AI, and recruiting — working together to move your business forward.</p>
   </div>
   <div class="services-grid">
-    <div class="service-card">
-      <div class="service-icon">💼</div>
-      <h3 class="service-title">Fractional CFO &amp; Controller</h3>
-      <p class="service-desc">Executive-level financial leadership on a flexible basis. Financial reporting, internal controls, budgeting, forecasting, and audit readiness — without the full-time cost.</p>
-      <a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="service-link">Learn more →</a>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🤖</div>
-      <h3 class="service-title">AI Consulting &amp; Strategy</h3>
-      <p class="service-desc">Practical AI implementation for finance and operations. We identify where AI creates real value and guide your team through adoption — no hype, just results.</p>
-      <a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="service-link">Learn more →</a>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">⚙️</div>
-      <h3 class="service-title">Business Process Automation</h3>
-      <p class="service-desc">Turn manual, time-consuming workflows into automated systems. We redesign financial and operational processes that save time, reduce errors, and lower costs.</p>
-      <a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="service-link">Learn more →</a>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🖥️</div>
-      <h3 class="service-title">ERP &amp; Software Implementation</h3>
-      <p class="service-desc">End-to-end ERP selection, implementation, and administration. We bridge the gap between your finance team and your technology — ensuring systems actually get used.</p>
-      <a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="service-link">Learn more →</a>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">📊</div>
-      <h3 class="service-title">Financial Reporting &amp; Controls</h3>
-      <p class="service-desc">Clean books, accurate reporting, and airtight internal controls. Built for organizations serving commercial and government clients who need precision and compliance.</p>
-      <a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="service-link">Learn more →</a>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🔍</div>
-      <h3 class="service-title">Finance &amp; Tech Recruiting</h3>
-      <p class="service-desc">Targeted talent acquisition for Finance and IT leadership roles. We find the right people because we understand both worlds — what the job truly requires and what great looks like.</p>
-      <a href="#recruiting" class="service-link">See recruiting →</a>
-    </div>
+    <div class="service-card"><div class="service-icon">💼</div><h3 class="service-title">Fractional CFO &amp; Controller</h3><p class="service-desc">Executive-level financial leadership on a flexible basis. Financial reporting, internal controls, budgeting, forecasting, and audit readiness — without the full-time cost.</p><a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="service-link">Learn more →</a></div>
+    <div class="service-card"><div class="service-icon">🤖</div><h3 class="service-title">AI Consulting &amp; Strategy</h3><p class="service-desc">Practical AI implementation for finance and operations. We identify where AI creates real value and guide your team through adoption — no hype, just results.</p><a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="service-link">Learn more →</a></div>
+    <div class="service-card"><div class="service-icon">⚙️</div><h3 class="service-title">Business Process Automation</h3><p class="service-desc">Turn manual, time-consuming workflows into automated systems. We redesign financial and operational processes that save time, reduce errors, and lower costs.</p><a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="service-link">Learn more →</a></div>
+    <div class="service-card"><div class="service-icon">🖥️</div><h3 class="service-title">ERP &amp; Software Implementation</h3><p class="service-desc">End-to-end ERP selection, implementation, and administration. We bridge the gap between your finance team and your technology — ensuring systems actually get used.</p><a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="service-link">Learn more →</a></div>
+    <div class="service-card"><div class="service-icon">📊</div><h3 class="service-title">Financial Reporting &amp; Controls</h3><p class="service-desc">Clean books, accurate reporting, and airtight internal controls. Built for organizations serving commercial and government clients who need precision and compliance.</p><a href="https://calendly.com/km-kmaccountingpartners" target="_blank" class="service-link">Learn more →</a></div>
+    <div class="service-card"><div class="service-icon">🔍</div><h3 class="service-title">Finance &amp; Tech Recruiting</h3><p class="service-desc">Targeted talent acquisition for Finance and IT leadership roles. We find the right people because we understand both worlds — what the job truly requires and what great looks like.</p><a href="#recruiting" class="service-link">See recruiting →</a></div>
   </div>
 </section>
-
 <div class="divider-banner" id="recruiting">
-  <div>
-    <h3>Executive Recruiting — Finance &amp; IT</h3>
-    <p>Contingency-based placement for $150K+ roles. You pay nothing until we successfully place a candidate.</p>
-  </div>
+  <div><h3>Executive Recruiting — Finance &amp; IT</h3><p>Contingency-based placement for $150K+ roles. You pay nothing until we successfully place a candidate.</p></div>
   <a href="#employer-form" class="btn btn-navy btn-lg">Submit a Role — It's Free</a>
 </div>
-
 <section class="section" style="background:var(--offwhite)">
   <p class="section-eyebrow">Recruiting Services</p>
   <h2 class="section-headline">We Place Finance &amp; IT Leaders<br/>That Drive Real Results</h2>
   <p class="section-sub">Whether you're a company looking for your next CFO or a candidate ready for a $150K+ opportunity — we connect the right people with the right roles.</p>
   <div class="recruiting-split">
-    <div class="audience-card employer">
-      <div class="aud-icon">🏢</div>
-      <h3>For Employers</h3>
-      <p>We find the Finance and IT leaders your business needs — on a contingency basis. You pay nothing until you hire.</p>
-      <ul class="aud-list">
-        <li><span class="check">✓</span> No upfront fees — pay only on successful placement</li>
-        <li><span class="check">✓</span> Pre-screened candidates only — no resume dumps</li>
-        <li><span class="check">✓</span> Specialized in $150K+ Finance &amp; IT roles</li>
-        <li><span class="check">✓</span> Average placement in 30 days or less</li>
-        <li><span class="check">✓</span> Dedicated recruiter assigned to your role</li>
-      </ul>
-      <a href="#employer-form" class="btn btn-gold btn-lg" style="align-self:flex-start">Submit a Role →</a>
-    </div>
-    <div class="audience-card candidate">
-      <div class="aud-icon">👤</div>
-      <h3>For Candidates</h3>
-      <p>We represent senior Finance and IT professionals seeking their next $150K+ opportunity. Our service is always free to candidates.</p>
-      <ul class="aud-list">
-        <li><span class="check">✓</span> 100% free — we are paid by the employer</li>
-        <li><span class="check">✓</span> Access to exclusive, unadvertised roles</li>
-        <li><span class="check">✓</span> Salary negotiation support</li>
-        <li><span class="check">✓</span> Confidential — your current employer won't know</li>
-        <li><span class="check">✓</span> Direct access to hiring decision-makers</li>
-      </ul>
-      <a href="#candidate-form" class="btn btn-navy btn-lg" style="align-self:flex-start">Upload Your Resume →</a>
-    </div>
+    <div class="audience-card employer"><div class="aud-icon">🏢</div><h3>For Employers</h3><p>We find the Finance and IT leaders your business needs — on a contingency basis. You pay nothing until you hire.</p><ul class="aud-list"><li><span class="check">✓</span> No upfront fees — pay only on successful placement</li><li><span class="check">✓</span> Pre-screened candidates only — no resume dumps</li><li><span class="check">✓</span> Specialized in $150K+ Finance &amp; IT roles</li><li><span class="check">✓</span> Average placement in 30 days or less</li><li><span class="check">✓</span> Dedicated recruiter assigned to your role</li></ul><a href="#employer-form" class="btn btn-gold btn-lg" style="align-self:flex-start">Submit a Role →</a></div>
+    <div class="audience-card candidate"><div class="aud-icon">👤</div><h3>For Candidates</h3><p>We represent senior Finance and IT professionals seeking their next $150K+ opportunity. Our service is always free to candidates.</p><ul class="aud-list"><li><span class="check">✓</span> 100% free — we are paid by the employer</li><li><span class="check">✓</span> Access to exclusive, unadvertised roles</li><li><span class="check">✓</span> Salary negotiation support</li><li><span class="check">✓</span> Confidential — your current employer won't know</li><li><span class="check">✓</span> Direct access to hiring decision-makers</li></ul><a href="#candidate-form" class="btn btn-navy btn-lg" style="align-self:flex-start">Upload Your Resume →</a></div>
   </div>
 </section>
-
 <section class="section" style="background:var(--white)" id="specialties">
   <p class="section-eyebrow">Roles We Place</p>
   <h2 class="section-headline">Finance &amp; IT Leadership Positions</h2>
@@ -468,7 +317,6 @@
     <div class="spec-card"><span class="spec-icon">🤖</span><h4>Machine Learning Engineer</h4><p>$165K – $260K</p></div>
   </div>
 </section>
-
 <section class="section" style="background:var(--offwhite)" id="forms">
   <p class="section-eyebrow">Get Started</p>
   <h2 class="section-headline">Submit a Role or Your Resume</h2>
@@ -478,41 +326,11 @@
       <h3>🏢 Employer Portal</h3>
       <p class="form-sub">Tell us about your open role and we'll get to work immediately.</p>
       <form id="employerForm" onsubmit="handleEmployer(event)">
-        <div class="form-row">
-          <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane" required /></div>
-          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" required /></div>
-        </div>
+        <div class="form-row"><div class="form-group"><label>First Name</label><input type="text" placeholder="Jane" required /></div><div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" required /></div></div>
         <div class="form-group"><label>Company Name</label><input type="text" placeholder="Acme Corporation" required /></div>
         <div class="form-group"><label>Work Email</label><input type="email" placeholder="jane@company.com" required /></div>
-        <div class="form-group">
-          <label>Role You're Hiring For</label>
-          <select required>
-            <option value="">Select a role...</option>
-            <option>Chief Financial Officer (CFO)</option>
-            <option>Chief Technology Officer (CTO)</option>
-            <option>Chief Information Officer (CIO)</option>
-            <option>Chief Information Security Officer (CISO)</option>
-            <option>VP of Finance</option>
-            <option>VP of Engineering</option>
-            <option>VP of Software Engineering</option>
-            <option>Director of Finance</option>
-            <option>Director of Engineering</option>
-            <option>Director of Cybersecurity</option>
-            <option>Machine Learning Engineer</option>
-            <option>Other ($150K+ role)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Salary Budget</label>
-          <select required>
-            <option value="">Select range...</option>
-            <option>$150,000 – $200,000</option>
-            <option>$200,000 – $300,000</option>
-            <option>$300,000 – $400,000</option>
-            <option>$400,000 – $500,000</option>
-            <option>$500,000+</option>
-          </select>
-        </div>
+        <div class="form-group"><label>Role You're Hiring For</label><select required><option value="">Select a role...</option><option>Chief Financial Officer (CFO)</option><option>Chief Technology Officer (CTO)</option><option>Chief Information Officer (CIO)</option><option>Chief Information Security Officer (CISO)</option><option>VP of Finance</option><option>VP of Engineering</option><option>VP of Software Engineering</option><option>Director of Finance</option><option>Director of Engineering</option><option>Director of Cybersecurity</option><option>Machine Learning Engineer</option><option>Other ($150K+ role)</option></select></div>
+        <div class="form-group"><label>Salary Budget</label><select required><option value="">Select range...</option><option>$150,000 – $200,000</option><option>$200,000 – $300,000</option><option>$300,000 – $400,000</option><option>$400,000 – $500,000</option><option>$500,000+</option></select></div>
         <div class="form-group"><label>Additional Notes (optional)</label><textarea placeholder="Tell us more about the role, team size, or requirements..."></textarea></div>
         <button type="submit" class="btn btn-gold btn-full">Submit Role →</button>
         <div class="success-msg" id="employerSuccess">✓ Thank you! We'll be in touch within 24 hours.</div>
@@ -522,140 +340,38 @@
       <h3>👤 Candidate Portal</h3>
       <p class="form-sub">Create your profile and let us match you to the right opportunity.</p>
       <form id="candidateForm" onsubmit="handleCandidate(event)">
-        <div class="form-row">
-          <div class="form-group"><label>First Name</label><input type="text" placeholder="John" required /></div>
-          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Doe" required /></div>
-        </div>
+        <div class="form-row"><div class="form-group"><label>First Name</label><input type="text" placeholder="John" required /></div><div class="form-group"><label>Last Name</label><input type="text" placeholder="Doe" required /></div></div>
         <div class="form-group"><label>Email Address</label><input type="email" placeholder="john@email.com" required /></div>
         <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="(555) 000-0000" required /></div>
         <div class="form-group"><label>Current Job Title</label><input type="text" placeholder="e.g. VP of Finance" required /></div>
-        <div class="form-group">
-          <label>Target Role</label>
-          <select required>
-            <option value="">What are you looking for?</option>
-            <option>CFO / Chief Financial Officer</option>
-            <option>CTO / Chief Technology Officer</option>
-            <option>CIO / Chief Information Officer</option>
-            <option>CISO / Chief Information Security Officer</option>
-            <option>VP of Finance</option>
-            <option>VP of Engineering</option>
-            <option>Director of Finance</option>
-            <option>Director of Engineering</option>
-            <option>Other Senior Role ($150K+)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Salary Expectation</label>
-          <select required>
-            <option value="">Select range...</option>
-            <option>$150,000 – $200,000</option>
-            <option>$200,000 – $300,000</option>
-            <option>$300,000 – $400,000</option>
-            <option>$400,000 – $500,000</option>
-            <option>$500,000+</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Upload Resume</label>
-          <div class="upload-area" onclick="document.getElementById('resumeFile').click()">
-            <div class="upload-icon">📄</div>
-            <p><strong>Click to upload</strong> your resume</p>
-            <p>PDF or Word · Max 5MB</p>
-            <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" style="display:none" onchange="handleFile(this)" />
-          </div>
-        </div>
+        <div class="form-group"><label>Target Role</label><select required><option value="">What are you looking for?</option><option>CFO / Chief Financial Officer</option><option>CTO / Chief Technology Officer</option><option>CIO / Chief Information Officer</option><option>CISO / Chief Information Security Officer</option><option>VP of Finance</option><option>VP of Engineering</option><option>Director of Finance</option><option>Director of Engineering</option><option>Other Senior Role ($150K+)</option></select></div>
+        <div class="form-group"><label>Salary Expectation</label><select required><option value="">Select range...</option><option>$150,000 – $200,000</option><option>$200,000 – $300,000</option><option>$300,000 – $400,000</option><option>$400,000 – $500,000</option><option>$500,000+</option></select></div>
+        <div class="form-group"><label>Upload Resume</label><div class="upload-area" onclick="document.getElementById('resumeFile').click()"><div class="upload-icon">📄</div><p><strong>Click to upload</strong> your resume</p><p>PDF or Word · Max 5MB</p><input type="file" id="resumeFile" accept=".pdf,.doc,.docx" style="display:none" onchange="handleFile(this)" /></div></div>
         <button type="submit" class="btn btn-navy btn-full">Submit Profile →</button>
         <div class="success-msg" id="candidateSuccess">✓ Profile received! A recruiter will contact you within 24 hours.</div>
       </form>
     </div>
   </div>
 </section>
-
 <section class="section" style="background:var(--white)" id="resources">
   <p class="section-eyebrow">KM Shop</p>
   <h2 class="section-headline">Professional Templates &amp; Digital Products</h2>
   <p class="section-sub">Practical tools built by a Financial Controller — ready to use immediately. Download and get to work today.</p>
-
   <div class="resources-grid">
-
-    <!-- PRODUCT 1: KM Fixed Asset Manager -->
     <div class="product-card">
-      <div class="product-img">
-        <span class="product-badge">Excel Template</span>
-        <div class="product-img-title">Fixed Asset<br/><span>Manager</span></div>
-        <div class="product-format">Professional Excel Workbook · 6 Tabs</div>
-      </div>
-      <div class="product-body">
-        <p class="product-desc">Professional-grade fixed asset tracking built by a Financial Controller. Automate depreciation, generate journal entries, and monitor your full portfolio — all in one Excel file.</p>
-        <ul class="product-features">
-          <li>Asset Register with 32 fields per asset</li>
-          <li>4 depreciation methods (SL, DDB, SYD, UOP)</li>
-          <li>Auto-generated monthly journal entry</li>
-          <li>Portfolio dashboard with KPI cards</li>
-          <li>Disposal log with gain/loss tracking</li>
-          <li>GAAP compliant · Audit ready</li>
-        </ul>
-        <div class="product-footer">
-          <div>
-            <div class="product-price">$97</div>
-            <div class="product-price-label">One-time · Instant download</div>
-          </div>
-          <a href="https://kmaccountant.gumroad.com/l/jvvxp" target="_blank" class="btn btn-gold btn-lg">Buy Now →</a>
-        </div>
-      </div>
+      <div class="product-img"><span class="product-badge">Excel Template</span><div class="product-img-title">Fixed Asset<br/><span>Manager</span></div><div class="product-format">Professional Excel Workbook · 6 Tabs</div></div>
+      <div class="product-body"><p class="product-desc">Professional-grade fixed asset tracking built by a Financial Controller. Automate depreciation, generate journal entries, and monitor your full portfolio — all in one Excel file.</p><ul class="product-features"><li>Asset Register with 32 fields per asset</li><li>4 depreciation methods (SL, DDB, SYD, UOP)</li><li>Auto-generated monthly journal entry</li><li>Portfolio dashboard with KPI cards</li><li>Disposal log with gain/loss tracking</li><li>GAAP compliant · Audit ready</li></ul><div class="product-footer"><div><div class="product-price">$97</div><div class="product-price-label">One-time · Instant download</div></div><a href="https://kmaccountant.gumroad.com/l/jvvxp" target="_blank" class="btn btn-gold btn-lg">Buy Now →</a></div></div>
     </div>
-
-    <!-- PRODUCT 2: Coming Soon -->
     <div class="product-card coming-soon-card">
-      <div class="coming-soon-overlay">
-        <span class="coming-soon-tag">Coming Soon</span>
-      </div>
-      <div class="product-body">
-        <p class="product-desc" style="font-weight:600;color:var(--navy);">DepreciateIQ</p>
-        <p class="product-desc">A full web-based fixed asset management platform with AI-powered depreciation recommendations, multi-user access, and automated reporting.</p>
-        <ul class="product-features">
-          <li>Cloud-based — no Excel required</li>
-          <li>AI depreciation recommendations</li>
-          <li>Multi-user access &amp; permissions</li>
-          <li>Automated GAAP reporting</li>
-        </ul>
-        <div class="product-footer">
-          <div>
-            <div class="product-price" style="font-size:1.1rem;color:var(--slate-light);">Coming Soon</div>
-            <div class="product-price-label">Web App · Subscription</div>
-          </div>
-          <a href="mailto:km@kmaccountingpartners.com" class="btn btn-navy-outline btn-lg" style="pointer-events:all;opacity:1;">Join Waitlist</a>
-        </div>
-      </div>
+      <div class="coming-soon-overlay"><span class="coming-soon-tag">Coming Soon</span></div>
+      <div class="product-body"><p class="product-desc" style="font-weight:600;color:var(--navy);">DepreciateIQ</p><p class="product-desc">A full web-based fixed asset management platform with AI-powered depreciation recommendations, multi-user access, and automated reporting.</p><ul class="product-features"><li>Cloud-based — no Excel required</li><li>AI depreciation recommendations</li><li>Multi-user access &amp; permissions</li><li>Automated GAAP reporting</li></ul><div class="product-footer"><div><div class="product-price" style="font-size:1.1rem;color:var(--slate-light);">Coming Soon</div><div class="product-price-label">Web App · Subscription</div></div><a href="mailto:km@kmaccountingpartners.com" class="btn btn-navy-outline btn-lg" style="pointer-events:all;opacity:1;">Join Waitlist</a></div></div>
     </div>
-
-    <!-- PRODUCT 3: Coming Soon -->
     <div class="product-card coming-soon-card">
-      <div class="coming-soon-overlay">
-        <span class="coming-soon-tag">Coming Soon</span>
-      </div>
-      <div class="product-body">
-        <p class="product-desc" style="font-weight:600;color:var(--navy);">More Templates</p>
-        <p class="product-desc">More professional accounting templates are in development — including a Month-End Close Checklist, Budget vs. Actual Tracker, and Cash Flow Forecasting Model.</p>
-        <ul class="product-features">
-          <li>Month-End Close Checklist</li>
-          <li>Budget vs. Actual Tracker</li>
-          <li>Cash Flow Forecast Model</li>
-          <li>Chart of Accounts Builder</li>
-        </ul>
-        <div class="product-footer">
-          <div>
-            <div class="product-price" style="font-size:1.1rem;color:var(--slate-light);">Coming Soon</div>
-            <div class="product-price-label">Excel Templates</div>
-          </div>
-          <a href="mailto:km@kmaccountingpartners.com" class="btn btn-navy-outline btn-lg" style="pointer-events:all;opacity:1;">Get Notified</a>
-        </div>
-      </div>
+      <div class="coming-soon-overlay"><span class="coming-soon-tag">Coming Soon</span></div>
+      <div class="product-body"><p class="product-desc" style="font-weight:600;color:var(--navy);">More Templates</p><p class="product-desc">More professional accounting templates in development — Month-End Close Checklist, Budget vs. Actual Tracker, and Cash Flow Forecasting Model.</p><ul class="product-features"><li>Month-End Close Checklist</li><li>Budget vs. Actual Tracker</li><li>Cash Flow Forecast Model</li><li>Chart of Accounts Builder</li></ul><div class="product-footer"><div><div class="product-price" style="font-size:1.1rem;color:var(--slate-light);">Coming Soon</div><div class="product-price-label">Excel Templates</div></div><a href="mailto:km@kmaccountingpartners.com" class="btn btn-navy-outline btn-lg" style="pointer-events:all;opacity:1;">Get Notified</a></div></div>
     </div>
-
   </div>
 </section>
-
 <section class="about-section" id="about">
   <div class="about-left">
     <p class="section-eyebrow" style="color:var(--gold)">The KM Difference</p>
@@ -683,7 +399,6 @@
     </div>
   </div>
 </section>
-
 <section class="section" style="background:var(--offwhite)" id="process">
   <p class="section-eyebrow">How We Work</p>
   <h2 class="section-headline">From Discovery to Results</h2>
@@ -695,13 +410,11 @@
     <div><div class="step-num">04</div><h3 class="step-title">Results &amp; Growth</h3><p class="step-body">Measurable financial and operational improvements, or a successful hire placed in your team — with ongoing support as needed.</p></div>
   </div>
 </section>
-
 <section class="testimonial">
   <div class="quote-mark">"</div>
   <p class="quote-text">KM Accounting Partners brought something we'd never found in a single firm before — someone who understood our financial statements and could also build the system to automate them. That combination changed everything for us.</p>
   <p class="quote-author">— <span>Client, Government Contracting Firm</span> · Washington, D.C.</p>
 </section>
-
 <section class="cta-section" id="contact">
   <h2 class="cta-headline">Ready to Modernize Your Operations<br/>or <em>Find Your Next Great Hire?</em></h2>
   <p class="cta-sub">Schedule a free 30-minute consultation, submit a role, or upload your resume. We respond within 24 hours.</p>
@@ -711,14 +424,12 @@
   </div>
   <p class="cta-note">No obligation · Response within 24 hours · Nationwide</p>
 </section>
-
 <div class="contact-bar">
   <div class="contact-item"><div class="contact-label">Consulting</div><a href="mailto:km@kmaccountingpartners.com">km@kmaccountingpartners.com</a></div>
   <div class="contact-item"><div class="contact-label">Recruiting</div><a href="mailto:recruiters@kmaccountingpartners.com">recruiters@kmaccountingpartners.com</a></div>
   <div class="contact-item"><div class="contact-label">Location</div><p>Apopka, Florida · Remote Nationwide</p></div>
   <div class="contact-item"><div class="contact-label">Schedule</div><a href="https://calendly.com/km-kmaccountingpartners" target="_blank">Book a Free Call →</a></div>
 </div>
-
 <footer>
   <div class="footer-top">
     <div>
@@ -726,80 +437,25 @@
       <span class="logo-sub">Finance · Technology · AI · Recruiting</span>
       <p class="footer-tagline">Bridging the gap between financial leadership and modern technology — and placing the leaders who make it happen.</p>
     </div>
-    <div class="footer-col">
-      <h4>Consulting</h4>
-      <ul>
-        <li><a href="#consulting">Fractional CFO &amp; Controller</a></li>
-        <li><a href="#consulting">AI Consulting</a></li>
-        <li><a href="#consulting">Process Automation</a></li>
-        <li><a href="#consulting">ERP Implementation</a></li>
-        <li><a href="#consulting">Financial Reporting</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Recruiting</h4>
-      <ul>
-        <li><a href="#recruiting">For Employers</a></li>
-        <li><a href="#candidate-form">For Candidates</a></li>
-        <li><a href="#specialties">Roles We Place</a></li>
-        <li><a href="#employer-form">Submit a Role</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Shop</h4>
-      <ul>
-        <li><a href="https://kmaccountant.gumroad.com/l/jvvxp" target="_blank">Fixed Asset Manager</a></li>
-        <li><a href="mailto:km@kmaccountingpartners.com">DepreciateIQ Waitlist</a></li>
-        <li><a href="mailto:km@kmaccountingpartners.com">Get Notified</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="#about">About Kheila</a></li>
-        <li><a href="#process">How We Work</a></li>
-        <li><a href="mailto:km@kmaccountingpartners.com">Contact</a></li>
-        <li><a href="https://calendly.com/km-kmaccountingpartners" target="_blank">Book a Call</a></li>
-        <li><a href="mailto:recruiters@kmaccountingpartners.com">Recruiting Inquiries</a></li>
-      </ul>
-    </div>
+    <div class="footer-col"><h4>Consulting</h4><ul><li><a href="#consulting">Fractional CFO &amp; Controller</a></li><li><a href="#consulting">AI Consulting</a></li><li><a href="#consulting">Process Automation</a></li><li><a href="#consulting">ERP Implementation</a></li><li><a href="#consulting">Financial Reporting</a></li></ul></div>
+    <div class="footer-col"><h4>Recruiting</h4><ul><li><a href="#recruiting">For Employers</a></li><li><a href="#candidate-form">For Candidates</a></li><li><a href="#specialties">Roles We Place</a></li><li><a href="#employer-form">Submit a Role</a></li></ul></div>
+    <div class="footer-col"><h4>Shop</h4><ul><li><a href="https://kmaccountant.gumroad.com/l/jvvxp" target="_blank">Fixed Asset Manager</a></li><li><a href="mailto:km@kmaccountingpartners.com">DepreciateIQ Waitlist</a></li><li><a href="mailto:km@kmaccountingpartners.com">Get Notified</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="#about">About Kheila</a></li><li><a href="#process">How We Work</a></li><li><a href="mailto:km@kmaccountingpartners.com">Contact</a></li><li><a href="https://calendly.com/km-kmaccountingpartners" target="_blank">Book a Call</a></li><li><a href="mailto:recruiters@kmaccountingpartners.com">Recruiting Inquiries</a></li></ul></div>
+    <div class="footer-col"><h4>KM360 Media</h4><ul><li><a href="/KM360/index.html">KM360 Homepage</a></li><li><a href="/KM360/news.html">News &amp; Insights</a></li><li><a href="/KM360/spotlight.html">Leader Spotlight</a></li><li><a href="/KM360/awards.html">Pinnacle Awards</a></li><li><a href="/KM360/newsletter.html">Newsletter</a></li></ul></div>
   </div>
   <div class="footer-bottom">
     <p class="footer-copy">© 2026 KM Accounting Partners. All rights reserved.</p>
     <div class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
   </div>
 </footer>
-
 <script>
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-  });
-  document.querySelectorAll('.mobile-link, .m-cta').forEach(l => {
-    l.addEventListener('click', () => {
-      hamburger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-    });
-  });
-  function handleEmployer(e) {
-    e.preventDefault();
-    document.getElementById('employerSuccess').style.display = 'block';
-    e.target.reset();
-    setTimeout(() => { document.getElementById('employerSuccess').style.display = 'none'; }, 6000);
-  }
-  function handleCandidate(e) {
-    e.preventDefault();
-    document.getElementById('candidateSuccess').style.display = 'block';
-    e.target.reset();
-    setTimeout(() => { document.getElementById('candidateSuccess').style.display = 'none'; }, 6000);
-  }
-  function handleFile(input) {
-    if (input.files && input.files[0]) {
-      input.closest('.upload-area').querySelectorAll('p')[0].innerHTML = '<strong>✓ ' + input.files[0].name + '</strong>';
-    }
-  }
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  document.querySelectorAll('.mobile-link, .m-cta').forEach(l => { l.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); }); });
+  function handleEmployer(e) { e.preventDefault(); document.getElementById('employerSuccess').style.display = 'block'; e.target.reset(); setTimeout(() => { document.getElementById('employerSuccess').style.display = 'none'; }, 6000); }
+  function handleCandidate(e) { e.preventDefault(); document.getElementById('candidateSuccess').style.display = 'block'; e.target.reset(); setTimeout(() => { document.getElementById('candidateSuccess').style.display = 'none'; }, 6000); }
+  function handleFile(input) { if (input.files && input.files[0]) { input.closest('.upload-area').querySelectorAll('p')[0].innerHTML = '<strong>✓ ' + input.files[0].name + '</strong>'; } }
 </script>
 </body>
 </html>
