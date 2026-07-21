@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>KM360 Media | Finance, Leadership & Technology Intelligence</title>
+  <meta name="description" content="KM360 Media — Business intelligence for Finance and Technology leaders. News, executive interviews, awards, and weekly insights."/>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--navy:#0D1B2A;--navy-mid:#1A2E45;--gold:#C9A84C;--gold-light:#E8C96A;--white:#FFFFFF;--offwhite:#F4F6F9;--slate:#4A5568;--slate-light:#718096;--border:#E2E8F0;--red:#C0392B}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;color:var(--navy);background:var(--white);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+
+    /* NAV */
+    nav{background:var(--navy);height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;position:sticky;top:0;z-index:200;border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#fff;letter-spacing:-.02em}
+    .nav-brand em{color:var(--gold);font-style:normal}
+    .nav-links{display:flex;gap:1.8rem;list-style:none}
+    .nav-links a{font-size:.8rem;color:rgba(255,255,255,.55);font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:#fff}
+    .nav-right{display:flex;align-items:center;gap:1rem}
+    .nav-back{font-size:.72rem;color:rgba(255,255,255,.28);transition:color .2s}
+    .nav-back:hover{color:rgba(255,255,255,.6)}
+    .btn-sub{background:var(--gold);color:var(--navy);padding:6px 18px;border-radius:3px;font-size:.78rem;font-weight:700;transition:background .2s}
+    .btn-sub:hover{background:var(--gold-light)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+    .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mobile-menu{display:none;position:fixed;top:58px;left:0;right:0;bottom:0;background:var(--navy);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{color:#fff;font-size:1.2rem;font-weight:500}
+    .mobile-menu a:hover{color:var(--gold)}
+
+    /* BREAKING */
+    .breaking{background:var(--red);padding:8px 6%;display:flex;align-items:center;gap:10px}
+    .br-tag{background:#fff;color:var(--red);font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:2px 8px;border-radius:2px;white-space:nowrap}
+    .br-text{font-size:.8rem;color:#fff}
+    .br-text strong{font-weight:700}
+    .br-text a{color:#fff;font-weight:700;text-decoration:underline}
+
+    /* CATEGORY BAR */
+    .cat-bar{background:var(--white);border-bottom:1px solid var(--border);padding:0 6%;display:flex;overflow-x:auto}
+    .cat-bar a{padding:12px 16px;font-family:'Playfair Display',serif;font-size:.85rem;font-weight:600;color:var(--slate-light);white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s;display:block}
+    .cat-bar a:hover{color:var(--navy)}
+    .cat-bar a.active{color:var(--navy);border-bottom-color:var(--gold)}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1.6fr 1fr;min-height:420px}
+    .hero-main{background:var(--navy);padding:3.5rem 3rem 3.5rem 6%;display:flex;flex-direction:column;justify-content:flex-end;border-right:1px solid rgba(255,255,255,.06)}
+    .hero-tag{display:inline-block;background:var(--gold);color:var(--navy);font-size:.62rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;padding:3px 10px;border-radius:2px;margin-bottom:14px}
+    .hero-hl{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,2.6vw,2.2rem);font-weight:700;line-height:1.18;color:#fff;letter-spacing:-.02em;margin-bottom:12px}
+    .hero-deck{font-size:.9rem;color:rgba(255,255,255,.5);line-height:1.75;max-width:500px;margin-bottom:18px;font-weight:300}
+    .hero-meta{font-size:.72rem;color:rgba(255,255,255,.28);margin-bottom:12px}
+    .hero-link{font-size:.8rem;color:var(--gold);font-weight:700;transition:opacity .2s}
+    .hero-link:hover{opacity:.75}
+    .hero-sidebar{background:var(--white);display:flex;flex-direction:column}
+    .sidebar-story{padding:22px 24px;border-bottom:1px solid var(--border);display:flex;flex-direction:column;justify-content:space-between;flex:1;transition:background .2s}
+    .sidebar-story:hover{background:var(--offwhite)}
+    .ss-cat{font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+    .ss-hl{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:6px}
+    .ss-meta{font-size:.7rem;color:var(--slate-light)}
+
+    /* LATEST ARTICLES */
+    .section{padding:2.5rem 6%}
+    .section-head{display:flex;align-items:center;gap:12px;margin-bottom:1.8rem}
+    .section-rule{width:28px;height:2px;background:var(--gold);flex-shrink:0}
+    .section-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--navy)}
+    .section-more{margin-left:auto;font-size:.75rem;color:var(--slate-light);font-weight:600;transition:color .2s}
+    .section-more:hover{color:var(--navy)}
+    .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .article-card{border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:all .2s;display:flex;flex-direction:column}
+    .article-card:hover{box-shadow:0 4px 20px rgba(13,27,42,.08);transform:translateY(-2px);border-color:rgba(201,168,76,.3)}
+    .card-img{height:140px;display:flex;align-items:flex-end;padding:10px;position:relative}
+    .card-img-tag{font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;background:var(--gold);color:var(--navy);padding:2px 8px;border-radius:2px;position:relative;z-index:1}
+    .card-body{padding:16px;flex:1;display:flex;flex-direction:column}
+    .card-hl{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:6px;flex:1}
+    .card-excerpt{font-size:.78rem;color:var(--slate-light);line-height:1.6;margin-bottom:10px}
+    .card-meta{font-size:.68rem;color:var(--slate-light);border-top:1px solid var(--border);padding-top:10px;margin-top:auto}
+
+    /* SPOTLIGHT */
+    .spotlight-section{background:var(--navy);padding:2.5rem 6%}
+    .spotlight-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.8rem}
+    .spotlight-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:#fff}
+    .btn-ghost-gold{border:1px solid rgba(201,168,76,.4);color:var(--gold);padding:6px 16px;border-radius:3px;font-size:.75rem;font-weight:600;transition:all .2s}
+    .btn-ghost-gold:hover{background:var(--gold);color:var(--navy)}
+    .spotlight-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:18px}
+    .spot-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:4px;padding:22px}
+    .spot-badge{font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block}
+    .spot-av{width:38px;height:38px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:var(--navy);margin-bottom:12px}
+    .spot-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:2px}
+    .spot-title{font-size:.7rem;color:rgba(255,255,255,.35);letter-spacing:.04em;margin-bottom:12px}
+    .spot-quote{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.75;font-style:italic;font-family:'Playfair Display',serif;border-left:2px solid var(--gold);padding-left:10px;margin-bottom:14px}
+    .spot-link{font-size:.75rem;color:var(--gold);font-weight:600;transition:opacity .2s}
+    .spot-link:hover{opacity:.75}
+    .spot-av-sm{width:30px;height:30px;border-radius:50%;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.25);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:10px;color:var(--gold);margin-bottom:10px}
+
+    /* AWARDS */
+    .awards-strip{background:var(--gold);padding:2rem 6%}
+    .awards-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:1rem}
+    .awards-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(13,27,42,.5);margin-bottom:4px}
+    .awards-hl{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--navy)}
+    .btn-navy{background:var(--navy);color:#fff;padding:8px 18px;border-radius:3px;font-size:.78rem;font-weight:700;transition:background .2s}
+    .btn-navy:hover{background:var(--navy-mid)}
+    .awards-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+    .award-card{background:rgba(13,27,42,.08);border-radius:3px;padding:14px 10px;text-align:center;transition:background .2s}
+    .award-card:hover{background:rgba(13,27,42,.15)}
+    .award-icon{font-size:1.4rem;margin-bottom:6px;display:block}
+    .award-name{font-size:.75rem;font-weight:700;color:var(--navy);line-height:1.3}
+
+    /* NEWSLETTER */
+    .nl-section{background:var(--navy);padding:3.5rem 6%;text-align:center}
+    .nl-eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px}
+    .nl-hl{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.2vw,1.9rem);font-weight:700;color:#fff;letter-spacing:-.02em;margin-bottom:8px}
+    .nl-hl em{font-style:italic;color:var(--gold)}
+    .nl-sub{font-size:.85rem;color:rgba(255,255,255,.35);max-width:400px;margin:0 auto 1.8rem;line-height:1.75;font-weight:300}
+    .nl-form{display:flex;max-width:400px;margin:0 auto}
+    .nl-input{flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-right:none;border-radius:3px 0 0 3px;padding:10px 14px;color:#fff;font-size:.85rem;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s}
+    .nl-input::placeholder{color:rgba(255,255,255,.22)}
+    .nl-input:focus{border-color:rgba(201,168,76,.4)}
+    .nl-btn{background:var(--gold);color:var(--navy);padding:10px 20px;border-radius:0 3px 3px 0;font-size:.78rem;font-weight:700;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s;white-space:nowrap}
+    .nl-btn:hover{background:var(--gold-light)}
+    .nl-perks{display:flex;justify-content:center;gap:1.8rem;margin-top:1rem;flex-wrap:wrap}
+    .nl-perk{font-size:.7rem;color:rgba(255,255,255,.2);display:flex;align-items:center;gap:5px}
+    .nl-perk::before{content:'·';color:rgba(201,168,76,.4)}
+    .nl-success{display:none;background:rgba(201,168,76,.12);border:1px solid var(--gold);border-radius:3px;padding:10px 18px;color:var(--gold);font-size:.85rem;font-weight:600;max-width:400px;margin:0 auto}
+
+    /* FOOTER */
+    footer{background:#060F1A;padding:3rem 6% 2rem}
+    .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.05)}
+    .footer-brand{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#fff}
+    .footer-brand em{color:var(--gold);font-style:normal}
+    .footer-tagline{font-size:.75rem;color:rgba(255,255,255,.25);line-height:1.7;max-width:200px;margin-top:.75rem}
+    .footer-col h4{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1rem}
+    .footer-col ul{list-style:none}
+    .footer-col ul li{margin-bottom:.5rem}
+    .footer-col ul li a{font-size:.75rem;color:rgba(255,255,255,.35);transition:color .2s}
+    .footer-col ul li a:hover{color:#fff}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-copy{font-size:.7rem;color:rgba(255,255,255,.18)}
+    .footer-back{font-size:.7rem;color:rgba(255,255,255,.25);transition:color .2s}
+    .footer-back:hover{color:var(--gold)}
+
+    @media(max-width:1024px){.hero{grid-template-columns:1fr}.hero-sidebar{flex-direction:row;border-top:1px solid var(--border)}.sidebar-story{border-bottom:none;border-right:1px solid var(--border)}.spotlight-grid{grid-template-columns:1fr 1fr}.awards-grid{grid-template-columns:repeat(3,1fr)}.footer-top{grid-template-columns:1fr 1fr}}
+    @media(max-width:768px){.nav-links,.nav-right .nav-back{display:none}.hamburger{display:flex}.hero-sidebar{flex-direction:column}.articles-grid{grid-template-columns:1fr 1fr}.spotlight-grid{grid-template-columns:1fr}.awards-grid{grid-template-columns:repeat(2,1fr)}.nl-form{flex-direction:column}.nl-input{border-right:1px solid rgba(255,255,255,.1);border-bottom:none;border-radius:3px 3px 0 0}.nl-btn{border-radius:0 0 3px 3px}}
+    @media(max-width:500px){.articles-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-brand">KM<em>360</em> Media</a>
+  <ul class="nav-links">
+    <li><a href="news.html">Finance</a></li>
+    <li><a href="news.html">Leadership</a></li>
+    <li><a href="news.html">Technology</a></li>
+    <li><a href="news.html">AI</a></li>
+    <li><a href="news.html">Operations</a></li>
+    <li><a href="awards.html">Awards</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="../index.html" class="nav-back">← KM Accounting Partners</a>
+    <a href="newsletter.html" class="btn-sub">Subscribe</a>
+  </div>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="news.html">Finance</a><a href="news.html">Leadership</a><a href="news.html">Technology</a>
+  <a href="news.html">AI</a><a href="news.html">Operations</a><a href="awards.html">Awards</a>
+  <a href="spotlight.html">Leader Spotlight</a><a href="newsletter.html">Subscribe</a>
+  <a href="../index.html">← KM Accounting Partners</a>
+</div>
+<div class="breaking">
+  <span class="br-tag">Breaking</span>
+  <span class="br-text"><strong>CFO hiring demand surges 34% in Q3 2026</strong> as companies accelerate AI-driven finance transformation — <a href="articles/template.html">Read more →</a></span>
+</div>
+<div class="cat-bar">
+  <a href="index.html" class="active">All</a>
+  <a href="news.html">Finance</a><a href="news.html">Leadership</a><a href="news.html">Technology</a>
+  <a href="news.html">AI</a><a href="news.html">Operations</a><a href="news.html">M&amp;A</a>
+  <a href="awards.html">Awards</a>
+</div>
+<div class="hero">
+  <div class="hero-main">
+    <span class="hero-tag">Finance · Featured</span>
+    <h1 class="hero-hl">The CFO's New Mandate: AI Strategy Is Now a Finance Problem</h1>
+    <p class="hero-deck">As artificial intelligence reshapes enterprise operations, finance leaders are finding themselves at the center of the most consequential technology decisions their organizations have ever made.</p>
+    <div class="hero-meta">KM Accounting Partners Editorial &nbsp;·&nbsp; July 21, 2026 &nbsp;·&nbsp; 5 min read</div>
+    <a href="articles/template.html" class="hero-link">Read the full story →</a>
+  </div>
+  <div class="hero-sidebar">
+    <a href="articles/template.html" class="sidebar-story"><div><div class="ss-cat">Leadership</div><div class="ss-hl">Why Your Next CFO Must Also Be a Technology Strategist</div></div><div class="ss-meta">July 21, 2026 · 4 min read</div></a>
+    <a href="articles/template.html" class="sidebar-story"><div><div class="ss-cat">Technology</div><div class="ss-hl">ERP in 2026: What Finance Teams Need to Know Before They Buy</div></div><div class="ss-meta">July 20, 2026 · 6 min read</div></a>
+    <a href="articles/template.html" class="sidebar-story"><div><div class="ss-cat">AI</div><div class="ss-hl">Automation Is Not the Threat to Finance Jobs — Ignoring It Is</div></div><div class="ss-meta">July 19, 2026 · 3 min read</div></a>
+  </div>
+</div>
+<section class="section" style="background:var(--white)">
+  <div class="section-head"><div class="section-rule"></div><h2 class="section-title">Latest Articles</h2><a href="news.html" class="section-more">View all →</a></div>
+  <div class="articles-grid">
+    <a href="articles/template.html" class="article-card"><div class="card-img" style="background:#0D1B2A"><span class="card-img-tag">Finance</span></div><div class="card-body"><div class="card-hl">The Hidden Cost of Manual Close Processes in 2026</div><div class="card-excerpt">Organizations still running manual month-end close are leaving significant value on the table.</div><div class="card-meta">KM Accounting Partners Editorial · 4 min read</div></div></a>
+    <a href="articles/template.html" class="article-card"><div class="card-img" style="background:#12101E"><span class="card-img-tag">AI</span></div><div class="card-body"><div class="card-hl">How Mid-Market CFOs Are Actually Using AI Right Now</div><div class="card-excerpt">Beyond the hype — a practical look at how finance leaders are deploying artificial intelligence.</div><div class="card-meta">KM Accounting Partners Editorial · 5 min read</div></div></a>
+    <a href="articles/template.html" class="article-card"><div class="card-img" style="background:#0D1F14"><span class="card-img-tag">Operations</span></div><div class="card-body"><div class="card-hl">Process Automation ROI: What to Expect in Year One</div><div class="card-excerpt">Setting realistic expectations for business process automation projects and where returns come from.</div><div class="card-meta">KM Accounting Partners Editorial · 6 min read</div></div></a>
+    <a href="articles/template.html" class="article-card"><div class="card-img" style="background:#1F160D"><span class="card-img-tag">Leadership</span></div><div class="card-body"><div class="card-hl">The $150K+ Talent Market: What's Driving Finance Executive Demand</div><div class="card-excerpt">Senior finance talent is in higher demand than at any point in the last decade.</div><div class="card-meta">KM Accounting Partners Editorial · 4 min read</div></div></a>
+    <a href="articles/template.html" class="article-card"><div class="card-img" style="background:#0D1A1F"><span class="card-img-tag">Technology</span></div><div class="card-body"><div class="card-hl">Choosing Your Next ERP: A Finance Leader's Decision Framework</div><div class="card-excerpt">With dozens of options on the market, selecting an ERP requires a structured approach.</div><div class="card-meta">KM Accounting Partners Editorial · 7 min read</div></div></a>
+    <a href="articles/template.html" class="article-card"><div class="card-img" style="background:#1A0D1F"><span class="card-img-tag">M&amp;A</span></div><div class="card-body"><div class="card-hl">Due Diligence in the AI Era: What Finance Teams Must Now Assess</div><div class="card-excerpt">Mergers now require a new layer of financial and technology due diligence most firms aren't ready for.</div><div class="card-meta">KM Accounting Partners Editorial · 5 min read</div></div></a>
+  </div>
+</section>
+<section class="spotlight-section">
+  <div class="spotlight-head"><h2 class="spotlight-title">Leader Spotlight</h2><a href="spotlight.html" class="btn-ghost-gold">All interviews →</a></div>
+  <div class="spotlight-grid">
+    <div class="spot-card"><span class="spot-badge">Featured Interview</span><div class="spot-av">JD</div><div class="spot-name">Jane Doe</div><div class="spot-title">Chief Financial Officer · Global Technology Company</div><div class="spot-quote">"AI, automation, and ERP are finance problems now — CFOs who don't own that conversation will be left behind within five years."</div><a href="spotlight.html" class="spot-link">Read the full interview →</a></div>
+    <div class="spot-card"><span class="spot-badge">Leader Spotlight</span><div class="spot-av-sm">MR</div><div class="spot-name">Marcus Rivera</div><div class="spot-title">CTO · Healthcare Services Group</div><div class="spot-quote">"We built the infrastructure most companies outsource. That's why we move faster than anyone in our market."</div><a href="spotlight.html" class="spot-link" style="margin-top:12px;display:inline-block">Read more →</a></div>
+    <div class="spot-card"><span class="spot-badge">Leader Spotlight</span><div class="spot-av-sm">SK</div><div class="spot-name">Sarah Kim</div><div class="spot-title">VP of Finance · PE-Backed Firm</div><div class="spot-quote">"Finance transformation isn't a project. It's a mindset. One-time initiatives always end up back where they started."</div><a href="spotlight.html" class="spot-link" style="margin-top:12px;display:inline-block">Read more →</a></div>
+  </div>
+</section>
+<div class="awards-strip">
+  <div class="awards-top"><div><div class="awards-eyebrow">Annual Recognition · 2026</div><div class="awards-hl">The KM360 Pinnacle Awards</div></div><a href="awards.html" class="btn-navy">Nominate a Leader →</a></div>
+  <div class="awards-grid">
+    <div class="award-card"><span class="award-icon">🏆</span><div class="award-name">CFO of the Year</div></div>
+    <div class="award-card"><span class="award-icon">💡</span><div class="award-name">AI Innovation in Finance</div></div>
+    <div class="award-card"><span class="award-icon">⚙️</span><div class="award-name">Operational Excellence</div></div>
+    <div class="award-card"><span class="award-icon">🌟</span><div class="award-name">Rising Executive</div></div>
+    <div class="award-card"><span class="award-icon">🖥️</span><div class="award-name">Best Tech Implementation</div></div>
+  </div>
+</div>
+<section class="nl-section">
+  <div class="nl-eyebrow">KM360 Weekly Brief</div>
+  <h2 class="nl-hl">Stay ahead of <em>Finance &amp; Technology</em></h2>
+  <p class="nl-sub">Join executives who get the KM360 Weekly Brief — top stories, leader insights, and award announcements every Monday.</p>
+  <div class="nl-form"><input type="email" class="nl-input" placeholder="your@email.com" id="nlEmail"/><button class="nl-btn" onclick="handleNL()">Subscribe Free →</button></div>
+  <div class="nl-success" id="nlSuccess">✓ You're in! Welcome to the KM360 Weekly Brief.</div>
+  <div class="nl-perks"><span class="nl-perk">Every Monday</span><span class="nl-perk">No spam</span><span class="nl-perk">Free forever</span><span class="nl-perk">Unsubscribe anytime</span></div>
+</section>
+<footer>
+  <div class="footer-top">
+    <div><div class="footer-brand">KM<em>360</em> Media</div><p class="footer-tagline">Business intelligence for Finance and Technology leaders. Published by KM Accounting Partners.</p></div>
+    <div class="footer-col"><h4>Coverage</h4><ul><li><a href="news.html">Finance</a></li><li><a href="news.html">Leadership</a></li><li><a href="news.html">Technology</a></li><li><a href="news.html">AI</a></li><li><a href="news.html">Operations</a></li><li><a href="news.html">M&amp;A</a></li></ul></div>
+    <div class="footer-col"><h4>Features</h4><ul><li><a href="spotlight.html">Leader Spotlight</a></li><li><a href="awards.html">Pinnacle Awards</a></li><li><a href="video.html">Video</a></li><li><a href="newsletter.html">Newsletter</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About KM360</a></li><li><a href="about.html">Our Mission</a></li><li><a href="about.html">Submit a Story</a></li><li><a href="about.html">Sponsor an Award</a></li></ul></div>
+    <div class="footer-col"><h4>KM Partners</h4><ul><li><a href="../index.html">KM Accounting Partners</a></li><li><a href="../index.html#consulting">Consulting</a></li><li><a href="../index.html#recruiting">Recruiting</a></li><li><a href="../index.html#resources">Shop</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p class="footer-copy">© 2026 KM360 Media · Published by KM Accounting Partners. All rights reserved.</p><a href="../index.html" class="footer-back">← Back to KM Accounting Partners</a></div>
+</footer>
+<script>
+  const h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');
+  h.addEventListener('click',()=>{h.classList.toggle('open');m.classList.toggle('open')});
+  document.querySelectorAll('#mobileMenu a').forEach(l=>l.addEventListener('click',()=>{h.classList.remove('open');m.classList.remove('open')}));
+  function handleNL(){const e=document.getElementById('nlEmail');if(!e.value||!e.value.includes('@')){alert('Please enter a valid email.');return;}document.querySelector('.nl-form').style.display='none';document.getElementById('nlSuccess').style.display='block';}
+</script>
+</body>
+</html>

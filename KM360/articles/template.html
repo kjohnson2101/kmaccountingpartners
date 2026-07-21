@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <!-- STEP 1: Change this title to your article title -->
+  <title>Article Title Here | KM360 Media</title>
+  <meta name="description" content="Article description here — 1-2 sentences."/>
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--navy:#0D1B2A;--navy-mid:#1A2E45;--gold:#C9A84C;--gold-light:#E8C96A;--white:#FFFFFF;--offwhite:#F4F6F9;--slate:#4A5568;--slate-light:#718096;--border:#E2E8F0}
+    body{font-family:'Inter',sans-serif;color:var(--navy);background:var(--white);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    nav{background:var(--navy);height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;position:sticky;top:0;z-index:200;border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-brand{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#fff;letter-spacing:-.02em}
+    .nav-brand em{color:var(--gold);font-style:normal}
+    .nav-links{display:flex;gap:1.8rem;list-style:none}
+    .nav-links a{font-size:.8rem;color:rgba(255,255,255,.55);font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:#fff}
+    .nav-right{display:flex;align-items:center;gap:1rem}
+    .nav-back{font-size:.72rem;color:rgba(255,255,255,.28);transition:color .2s}
+    .nav-back:hover{color:rgba(255,255,255,.6)}
+    .btn-sub{background:var(--gold);color:var(--navy);padding:6px 18px;border-radius:3px;font-size:.78rem;font-weight:700}
+
+    /* ARTICLE HERO */
+    .article-hero{background:var(--navy);padding:3.5rem 6% 3rem}
+    .breadcrumb{font-size:.72rem;color:rgba(255,255,255,.3);margin-bottom:1.2rem;display:flex;align-items:center;gap:8px}
+    .breadcrumb a{color:rgba(255,255,255,.3);transition:color .2s}
+    .breadcrumb a:hover{color:var(--gold)}
+    .breadcrumb span{color:rgba(255,255,255,.15)}
+    /* STEP 2: Change this category tag */
+    .article-cat{display:inline-block;background:var(--gold);color:var(--navy);font-size:.62rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;padding:3px 10px;border-radius:2px;margin-bottom:1rem}
+    /* STEP 3: Change this headline */
+    .article-hl{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;line-height:1.15;color:#fff;letter-spacing:-.02em;margin-bottom:1rem;max-width:720px}
+    /* STEP 4: Change this deck/subtitle */
+    .article-deck{font-size:1rem;color:rgba(255,255,255,.5);line-height:1.75;max-width:620px;margin-bottom:1.5rem;font-weight:300}
+    .article-meta{font-size:.72rem;color:rgba(255,255,255,.28);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .meta-dot{color:rgba(255,255,255,.15)}
+
+    /* ARTICLE BODY */
+    .article-wrap{max-width:720px;margin:0 auto;padding:3rem 6%}
+    /* STEP 5: Replace the content inside .article-body with your article text */
+    .article-body{font-size:1rem;line-height:1.85;color:var(--slate)}
+    .article-body p{margin-bottom:1.4rem}
+    .article-body h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--navy);margin:2.2rem 0 .8rem;line-height:1.2}
+    .article-body h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--navy);margin:1.8rem 0 .6rem}
+    .article-body blockquote{border-left:3px solid var(--gold);padding-left:1.2rem;margin:1.8rem 0;font-style:italic;font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--navy);line-height:1.65}
+    .article-body ul,
+    .article-body ol{margin:0 0 1.4rem 1.4rem}
+    .article-body li{margin-bottom:.5rem}
+    .article-body strong{font-weight:700;color:var(--navy)}
+
+    /* AUTHOR BOX */
+    .author-box{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.5rem 0;margin:2.5rem 0;display:flex;align-items:center;gap:1rem}
+    .author-av{width:44px;height:44px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:var(--navy);flex-shrink:0}
+    .author-name{font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:2px}
+    .author-title{font-size:.75rem;color:var(--slate-light)}
+
+    /* RELATED */
+    .related{background:var(--offwhite);padding:2.5rem 6%}
+    .related-head{display:flex;align-items:center;gap:12px;margin-bottom:1.5rem}
+    .related-rule{width:28px;height:2px;background:var(--gold);flex-shrink:0}
+    .related-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--navy)}
+    .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .related-card{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:18px;transition:all .2s}
+    .related-card:hover{border-color:rgba(201,168,76,.3);transform:translateY(-2px)}
+    .rc-cat{font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+    .rc-hl{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:5px}
+    .rc-meta{font-size:.68rem;color:var(--slate-light)}
+
+    footer{background:#060F1A;padding:2rem 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-brand{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:#fff}
+    .footer-brand em{color:var(--gold);font-style:normal}
+    .footer-copy{font-size:.7rem;color:rgba(255,255,255,.18)}
+    .footer-back{font-size:.7rem;color:rgba(255,255,255,.25);transition:color .2s}
+    .footer-back:hover{color:var(--gold)}
+
+    @media(max-width:768px){.nav-links{display:none}.related-grid{grid-template-columns:1fr}.article-wrap{padding:2rem 5%}}
+  </style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-brand">KM<em>360</em> Media</a>
+  <ul class="nav-links">
+    <li><a href="../news.html">Finance</a></li>
+    <li><a href="../news.html">Leadership</a></li>
+    <li><a href="../news.html">Technology</a></li>
+    <li><a href="../news.html">AI</a></li>
+    <li><a href="../news.html">Operations</a></li>
+    <li><a href="../awards.html">Awards</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="../../index.html" class="nav-back">← KM Accounting Partners</a>
+    <a href="../newsletter.html" class="btn-sub">Subscribe</a>
+  </div>
+</nav>
+
+<div class="article-hero">
+  <div class="breadcrumb">
+    <a href="../index.html">KM360 Media</a>
+    <span>›</span>
+    <!-- STEP 2: Change category in breadcrumb too -->
+    <a href="../news.html">Finance</a>
+    <span>›</span>
+    <span style="color:rgba(255,255,255,.5)">Article Title</span>
+  </div>
+  <!-- STEP 2: Change category tag (Finance / Leadership / Technology / AI / Operations / M&A / Awards) -->
+  <span class="article-cat">Finance</span>
+  <!-- STEP 3: Change headline -->
+  <h1 class="article-hl">Your Article Headline Goes Here — Make It Compelling</h1>
+  <!-- STEP 4: Change deck -->
+  <p class="article-deck">A one or two sentence summary of what this article covers and why it matters to your reader.</p>
+  <div class="article-meta">
+    <span>KM Accounting Partners Editorial</span>
+    <span class="meta-dot">·</span>
+    <!-- STEP 5: Change date -->
+    <span>July 21, 2026</span>
+    <span class="meta-dot">·</span>
+    <!-- STEP 6: Change read time -->
+    <span>5 min read</span>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <!-- STEP 7: Replace everything inside .article-body with your actual article content -->
+  <div class="article-body">
+    <p>This is your opening paragraph. Write 2-3 sentences that immediately pull the reader in. State the problem or insight your article addresses. Make them want to keep reading.</p>
+
+    <h2>Your First Section Heading</h2>
+    <p>This is the body of your first section. Write naturally, as if explaining something to a smart colleague. Use short paragraphs — 3 to 4 sentences maximum. White space is your friend.</p>
+    <p>Continue your thought here. Add data, context, or examples that support your point. Be specific — vague claims lose readers.</p>
+
+    <blockquote>This is a pull quote — use it to highlight a key insight, statistic, or statement that deserves emphasis. Keep it under two sentences.</blockquote>
+
+    <h2>Your Second Section Heading</h2>
+    <p>Continue your article here. Each section should make one clear point and support it with evidence or examples.</p>
+    <p>You can use bullet points when listing specific items:</p>
+    <ul>
+      <li>First item in your list</li>
+      <li>Second item in your list</li>
+      <li>Third item in your list</li>
+    </ul>
+
+    <h2>Your Third Section Heading</h2>
+    <p>Keep going. A good KM360 article is 600-1000 words. That's 4-6 sections like this one.</p>
+    <p>End with a clear takeaway — what should the reader do, think, or remember after reading this?</p>
+
+    <h2>The Bottom Line</h2>
+    <p>Summarize your key insight in 2-3 sentences. What's the one thing a busy CFO or CTO should take away from this article? Make it clear, direct, and actionable.</p>
+  </div>
+
+  <div class="author-box">
+    <div class="author-av">KM</div>
+    <div>
+      <div class="author-name">KM Accounting Partners Editorial</div>
+      <div class="author-title">Finance · Technology · Leadership · AI</div>
+    </div>
+  </div>
+</div>
+
+<section class="related">
+  <div class="related-head"><div class="related-rule"></div><h2 class="related-title">Related Articles</h2></div>
+  <!-- STEP 8: Update these 3 related article links when you publish more content -->
+  <div class="related-grid">
+    <a href="template.html" class="related-card"><div class="rc-cat">Finance</div><div class="rc-hl">The Hidden Cost of Manual Close Processes in 2026</div><div class="rc-meta">4 min read</div></a>
+    <a href="template.html" class="related-card"><div class="rc-cat">AI</div><div class="rc-hl">How Mid-Market CFOs Are Actually Using AI Right Now</div><div class="rc-meta">5 min read</div></a>
+    <a href="template.html" class="related-card"><div class="rc-cat">Leadership</div><div class="rc-hl">Why Your Next CFO Must Also Be a Technology Strategist</div><div class="rc-meta">4 min read</div></a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">KM<em>360</em> Media</div>
+  <p class="footer-copy">© 2026 KM360 Media · Published by KM Accounting Partners.</p>
+  <a href="../../index.html" class="footer-back">← Back to KM Accounting Partners</a>
+</footer>
+</body>
+</html>
