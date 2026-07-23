@@ -410,36 +410,35 @@
 <section class="section" style="background:var(--offwhite)" id="forms">
   <p class="section-eyebrow">Get Started</p>
   <h2 class="section-headline">Submit a Role or Your Resume</h2>
-  <p class="section-sub">Fill out the form below and a recruiter will follow up within 24 hours.</p>
+  <p class="section-sub">Fill out the form and a recruiter will follow up within 24 hours.</p>
   <div class="forms-grid">
-    <div class="form-card" id="employer-form">
-      <h3>🏢 Employer Portal</h3>
-      <p class="form-sub">Tell us about your open role and we'll get to work immediately.</p>
-      <form id="employerForm" onsubmit="handleEmployer(event)">
-        <div class="form-row"><div class="form-group"><label>First Name</label><input type="text" placeholder="Jane" required /></div><div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" required /></div></div>
-        <div class="form-group"><label>Company Name</label><input type="text" placeholder="Acme Corporation" required /></div>
-        <div class="form-group"><label>Work Email</label><input type="email" placeholder="jane@company.com" required /></div>
-        <div class="form-group"><label>Role You're Hiring For</label><select required><option value="">Select a role...</option><option>Chief Financial Officer (CFO)</option><option>Chief Technology Officer (CTO)</option><option>Chief Information Officer (CIO)</option><option>Chief Information Security Officer (CISO)</option><option>VP of Finance</option><option>VP of Engineering</option><option>VP of Software Engineering</option><option>Director of Finance</option><option>Director of Engineering</option><option>Director of Cybersecurity</option><option>Machine Learning Engineer</option><option>Other (Senior role)</option></select></div>
-        <div class="form-group"><label>Salary Budget</label><select required><option value="">Select range...</option><option>$150,000 – $200,000</option><option>$200,000 – $300,000</option><option>$300,000 – $400,000</option><option>$400,000 – $500,000</option><option>$500,000+</option></select></div>
-        <div class="form-group"><label>Additional Notes (optional)</label><textarea placeholder="Tell us more about the role, team size, or requirements..."></textarea></div>
-        <button type="submit" class="btn btn-gold btn-full">Submit Role →</button>
-        <div class="success-msg" id="employerSuccess">✓ Thank you! We'll be in touch within 24 hours.</div>
-      </form>
+    <div class="form-card" id="employer-form" style="display:flex;flex-direction:column;justify-content:space-between;">
+      <div>
+        <div style="width:52px;height:52px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.2rem;">🏢</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:.5rem;">Employer Portal</h3>
+        <p style="font-size:.84rem;color:var(--slate-light);margin-bottom:1.5rem;line-height:1.7;">Tell us about your open role and we'll get to work immediately. No upfront fees — you only pay when we successfully place a candidate.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:2rem;">
+          <li style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--slate);"><span style="color:var(--gold);font-weight:700;">✓</span> No upfront fees — pay only on placement</li>
+          <li style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--slate);"><span style="color:var(--gold);font-weight:700;">✓</span> Pre-screened candidates only</li>
+          <li style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--slate);"><span style="color:var(--gold);font-weight:700;">✓</span> Senior Finance &amp; IT roles</li>
+          <li style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--slate);"><span style="color:var(--gold);font-weight:700;">✓</span> Recruiter assigned within 24 hours</li>
+        </ul>
+      </div>
+      <a href="https://forms.gle/FG3A5bSAzBaoK9926" target="_blank" class="btn btn-gold btn-full" style="text-align:center;">Submit a Role →</a>
     </div>
-    <div class="form-card" id="candidate-form">
-      <h3>👤 Candidate Portal</h3>
-      <p class="form-sub">Create your profile and let us match you to the right opportunity.</p>
-      <form id="candidateForm" onsubmit="handleCandidate(event)">
-        <div class="form-row"><div class="form-group"><label>First Name</label><input type="text" placeholder="John" required /></div><div class="form-group"><label>Last Name</label><input type="text" placeholder="Doe" required /></div></div>
-        <div class="form-group"><label>Email Address</label><input type="email" placeholder="john@email.com" required /></div>
-        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="(555) 000-0000" required /></div>
-        <div class="form-group"><label>Current Job Title</label><input type="text" placeholder="e.g. VP of Finance" required /></div>
-        <div class="form-group"><label>Target Role</label><select required><option value="">What are you looking for?</option><option>CFO / Chief Financial Officer</option><option>CTO / Chief Technology Officer</option><option>CIO / Chief Information Officer</option><option>CISO / Chief Information Security Officer</option><option>VP of Finance</option><option>VP of Engineering</option><option>Director of Finance</option><option>Director of Engineering</option><option>Other Senior Role</option></select></div>
-        <div class="form-group"><label>Salary Expectation</label><select required><option value="">Select range...</option><option>$150,000 – $200,000</option><option>$200,000 – $300,000</option><option>$300,000 – $400,000</option><option>$400,000 – $500,000</option><option>$500,000+</option></select></div>
-        <div class="form-group"><label>Upload Resume</label><div class="upload-area" onclick="document.getElementById('resumeFile').click()"><div class="upload-icon">📄</div><p><strong>Click to upload</strong> your resume</p><p>PDF or Word · Max 5MB</p><input type="file" id="resumeFile" accept=".pdf,.doc,.docx" style="display:none" onchange="handleFile(this)" /></div></div>
-        <button type="submit" class="btn btn-navy btn-full">Submit Profile →</button>
-        <div class="success-msg" id="candidateSuccess">✓ Profile received! A recruiter will contact you within 24 hours.</div>
-      </form>
+    <div class="form-card" id="candidate-form" style="display:flex;flex-direction:column;justify-content:space-between;">
+      <div>
+        <div style="width:52px;height:52px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.2rem;">👤</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:.5rem;">Candidate Portal</h3>
+        <p style="font-size:.84rem;color:var(--slate-light);margin-bottom:1.5rem;line-height:1.7;">Create your profile and let us match you to the right opportunity. Our service is always 100% free to candidates — we are paid by the hiring company.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:2rem;">
+          <li style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--slate);"><span style="color:var(--gold);font-weight:700;">✓</span> 100% free — we are paid by the employer</li>
+          <li style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--slate);"><span style="color:var(--gold);font-weight:700;">✓</span> Access to exclusive, unadvertised roles</li>
+          <li style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--slate);"><span style="color:var(--gold);font-weight:700;">✓</span> Confidential — your employer won't know</li>
+          <li style="display:flex;align-items:flex-start;gap:8px;font-size:.85rem;color:var(--slate);"><span style="color:var(--gold);font-weight:700;">✓</span> Upload your resume securely</li>
+        </ul>
+      </div>
+      <a href="https://forms.gle/ayXo4pT2iobT9kEWA" target="_blank" class="btn btn-navy btn-full" style="text-align:center;">Upload Your Resume →</a>
     </div>
   </div>
 </section>
